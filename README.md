@@ -26,45 +26,47 @@ si le script ne charge jamais. Le jour où une vraie interaction arrive, une
 démonstration jouable de la vue Tri par exemple, Astro laisse ajouter un îlot
 React sur ce composant seul, sans convertir le reste.
 
-## Où ça vit
+## Où c'est en ligne
 
-Aujourd'hui dans la gestion, parce que le dépôt code était occupé par S4. Le
-dossier `site/` se déplace tel quel à la racine du dépôt Colophon dès que S4 a
-committé. Rien dedans ne dépend de son emplacement.
+**https://alexis-morain.github.io/colophon-site/**, et `/fr/` pour la version
+française. URL temporaire, en attendant le domaine.
 
-## Déployer, gratuitement
+GitHub Pages, publié par `.github/workflows/deploy.yml` à chaque push sur
+`main` : `withastro/action` compile, `actions/deploy-pages` publie. Rien à
+faire à la main, rien à surveiller.
 
-**Cloudflare Pages**, c'est le choix : gratuit sans limite de trafic utile,
-build automatique à chaque push, HTTPS et domaine inclus, aucune carte
-bancaire. Connecter le dépôt, puis trois champs :
+Le dépôt du site est séparé de celui du logiciel (`colophon-site`, public),
+parce que `colophon` est privé et que Pages ne publie pas depuis un dépôt privé
+sans compte payant. Le jour où le logiciel devient public, les deux peuvent
+fusionner : `site/` va à la racine du dépôt et le workflow gagne un
+`working-directory`. Rien dans le code du site ne dépend de son emplacement.
 
-- Framework preset : Astro
-- Build command : `npm run build`
-- Build output directory : `dist`
-- Root directory : `site` (le dépôt contient aussi le code de l'app)
+Cloudflare Pages reste la meilleure alternative si Pages coince un jour. Le VPS
+et Coolify sont la moins bonne option ici : héberger soi-même 20 ko de HTML
+statique achète une machine à surveiller et rien d'autre.
 
-**GitHub Pages** marche aussi et évite un compte de plus, avec l'action
-officielle `withastro/action`. Un cran plus lent à publier et il faut penser à
-`base` dans `astro.config.mjs` si le site n'est pas sur un domaine propre.
+## Le site est hors index
 
-Le VPS et Coolify sont une troisième voie, et la moins bonne ici : héberger
-soi-même 40 ko de HTML statique achète une machine à surveiller et rien
-d'autre.
+`<meta name="robots" content="noindex, nofollow">` dans
+`src/layouts/Page.astro`. La page est atteignable par son URL, pour la revue et
+pour le premier cercle, mais elle ne remonte pas dans une recherche avant que
+les captures existent et que la marque soit vérifiée. **Une ligne à supprimer
+le jour du lancement**, et c'est la seule.
 
-## À faire avant la première mise en ligne
+## Les quatre bascules qui restent
 
-1. **Le domaine**, dans `astro.config.mjs` (`site:`). Il alimente les URL
-   canoniques et les balises `hreflang`. Il est aujourd'hui réglé sur un
-   placeholder, `colophon.app`, qui n'est pas réservé.
-2. **Les captures.** Le site tient debout sans image et c'est délibéré, mais
-   la vue Tri est l'argument le plus fort du produit et elle mérite d'être
-   montrée. Trois emplacements l'attendent, mêmes fichiers que le README du
-   dépôt.
+1. **Le domaine.** Dans `astro.config.mjs` : `site` devient le domaine, `base`
+   devient `"/"`, et un fichier `CNAME` va dans `public/`. Les liens internes
+   suivent tout seuls, ils sont tous construits depuis `import.meta.env.BASE_URL`.
+2. **Les captures.** Le site tient debout sans image, c'est délibéré, mais la
+   vue Tri est l'argument le plus fort du produit et elle mérite d'être
+   montrée. Mêmes fichiers que le README du dépôt.
 3. **L'image sociale** 1280 × 640, dans `public/social.png`, et décommenter la
    balise `og:image` dans `src/layouts/Page.astro`.
 4. **`config.released`** dans `src/copy.ts` passe à `true` le jour de la
    première release avec des binaires. Le bloc « Installer » change tout seul :
-   les deux commandes cèdent la place aux boutons par plateforme.
+   les deux commandes cèdent la place aux boutons par plateforme, qui pointent
+   vers `releases/latest`.
 
 ## Modifier le texte
 
