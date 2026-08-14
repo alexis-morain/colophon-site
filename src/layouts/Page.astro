@@ -1,0 +1,244 @@
+---
+import type { Copy } from "../copy";
+import { config } from "../copy";
+import Spread from "../components/Spread.astro";
+import "../styles/global.css";
+
+interface Props {
+  copy: Copy;
+}
+
+const { copy } = Astro.props;
+
+// The three labels inside the diagram, kept here rather than in copy.ts:
+// they belong to the drawing, not to the argument.
+const diagram =
+  copy.lang === "fr"
+    ? { trim: "Taille rognée", bleed: "fond perdu 3 mm", fold: "pli" }
+    : { trim: "Trim size", bleed: "3 mm bleed", fold: "fold" };
+
+// Every internal link goes through here. On GitHub Pages the site sits under
+// /colophon-site/, on a real domain it will sit at the root: `base` is the one
+// place that knows, and hard-coded absolute paths would break on one of the two.
+const root = import.meta.env.BASE_URL.replace(/\/$/, "");
+const url = (path: string) => `${root}${path}`;
+
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const alt = new URL(url(copy.altHref), Astro.site).href;
+---
+
+<!doctype html>
+<html lang={copy.lang} dir={copy.dir}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{copy.meta.title}</title>
+    <meta name="description" content={copy.meta.description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang={copy.lang === "en" ? "fr" : "en"} href={alt} />
+    <link rel="icon" href={url("/favicon.svg")} type="image/svg+xml" />
+    <!-- Off the index until the launch: the page is reachable by its URL, for
+         review and for the first circle, but it does not turn up in a search
+         for "photo book" before the captures and the trademark check exist.
+         Delete this line on launch day. -->
+    <meta name="robots" content="noindex, nofollow" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={copy.meta.title} />
+    <meta property="og:description" content={copy.meta.description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content={copy.lang === "fr" ? "fr_FR" : "en_GB"} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <!-- og:image once docs/images/social.png exists, 1280 × 640:
+    <meta property="og:image" content={new URL("/social.png", Astro.site).href} /> -->
+  </head>
+
+  <body>
+    <a class="skip" href="#main">{copy.lang === "fr" ? "Aller au contenu" : "Skip to content"}</a>
+
+    <div class="wrap">
+      <header class="masthead">
+        <a class="mark" href={url(copy.lang === "fr" ? "/fr/" : "/")}>Colophon</a>
+        <nav aria-label={copy.lang === "fr" ? "Sections" : "Sections"}>
+          <a href="#work">{copy.nav.work}</a>
+          <a href="#promise">{copy.nav.promise}</a>
+          <a href="#print">{copy.nav.print}</a>
+          <a href="#faq">{copy.nav.faq}</a>
+          <a class="lang" href={url(copy.altHref)} title={copy.altTitle} hreflang={copy.lang === "en" ? "fr" : "en"}>
+            {copy.altLabel}
+          </a>
+        </nav>
+      </header>
+    </div>
+
+    <main id="main">
+      <div class="wrap">
+        <div class="hero rise">
+          <h1 set:html={copy.hero.title} />
+          <p class="lede">{copy.hero.lede}</p>
+          <div class="actions">
+            <a class="btn" href="#get">{copy.hero.cta}</a>
+            <a class="btn-quiet" href={config.repo}>{copy.hero.ctaAlt}</a>
+          </div>
+          <p class="note">{copy.hero.note}</p>
+        </div>
+      </div>
+
+      <!-- one run, in numbers -->
+      <section id="work">
+        <div class="wrap">
+          <p class="kicker">{copy.run.kicker}</p>
+          <div class="run-line">
+            <div>
+              <span class="figure-n">{copy.run.from.n}</span>
+              <span class="figure-l">{copy.run.from.label}</span>
+            </div>
+            <span class="arrow" aria-hidden="true">→</span>
+            <div>
+              <span class="figure-n to">{copy.run.to.n}</span>
+              <span class="figure-l">{copy.run.to.label}</span>
+            </div>
+          </div>
+          <p class="run-tail" set:html={copy.run.tail} />
+          <ul class="pipeline">
+            {copy.run.pipeline.map((step) => <li>{step}</li>)}
+          </ul>
+          <p class="caption">{copy.run.caption}</p>
+        </div>
+      </section>
+
+      <!-- what it refuses to do -->
+      <section id="promise">
+        <div class="wrap split">
+          <div>
+            <p class="kicker">{copy.promise.kicker}</p>
+            <h2>{copy.promise.title}</h2>
+            <p style="margin-top:1.2rem">{copy.promise.lede}</p>
+            <ul class="nevers">
+              {copy.promise.items.map((item) => <li>{item}</li>)}
+            </ul>
+            <p>{copy.promise.tail}</p>
+          </div>
+          <aside>
+            <p>{copy.sort.figure}</p>
+            <Spread trim={diagram.trim} bleed={diagram.bleed} fold={diagram.fold} />
+          </aside>
+        </div>
+      </section>
+
+      <!-- the sort view -->
+      <section id="sort">
+        <div class="wrap split flip">
+          <div>
+            <p class="kicker">{copy.sort.kicker}</p>
+            <h2>{copy.sort.title}</h2>
+            {copy.sort.body.map((para, i) => <p style={i === 0 ? "margin-top:1.2rem" : undefined}>{para}</p>)}
+          </div>
+          <aside>
+            <p>{copy.privacy.body[2]}</p>
+          </aside>
+        </div>
+      </section>
+
+      <!-- printing -->
+      <section id="print">
+        <div class="wrap split">
+          <div>
+            <p class="kicker">{copy.print.kicker}</p>
+            <h2>{copy.print.title}</h2>
+            {copy.print.body.map((para, i) => <p style={i === 0 ? "margin-top:1.2rem" : undefined}>{para}</p>)}
+            <pre class="term"><code>{copy.print.code}</code></pre>
+          </div>
+          <aside>
+            <p>{copy.print.profiles}</p>
+          </aside>
+        </div>
+      </section>
+
+      <!-- what it does not do -->
+      <section id="privacy">
+        <div class="wrap">
+          <p class="kicker">{copy.privacy.kicker}</p>
+          <h2>{copy.privacy.title}</h2>
+          <div style="margin-top:1.2rem">
+            {copy.privacy.body.slice(0, 2).map((para) => <p>{para}</p>)}
+          </div>
+        </div>
+      </section>
+
+      <!-- get it -->
+      <section id="get">
+        <div class="wrap">
+          <p class="kicker">{copy.download.kicker}</p>
+          <h2>{config.released ? "Colophon " + config.version : copy.download.title}</h2>
+
+          {
+            config.released ? (
+              <>
+                <p style="margin-top:1.2rem">{copy.download.releasedLede}</p>
+                <div class="platforms">
+                  <a class="btn" href={config.releases}>
+                    {copy.download.mac}
+                  </a>
+                  <a class="btn" href={config.releases}>
+                    {copy.download.win}
+                  </a>
+                  <a class="btn-quiet" href={config.repo}>
+                    {copy.download.source}
+                  </a>
+                </div>
+                <p class="caption">{copy.download.linux}</p>
+              </>
+            ) : (
+              <>
+                <p style="margin-top:1.2rem">{copy.download.unreleasedLede}</p>
+                <ol class="steps">
+                  {copy.download.unreleasedSteps.map((step) => (
+                    <li>
+                      <pre class="term"><code>{step.code}</code></pre>
+                      <p class="note">{step.note}</p>
+                    </li>
+                  ))}
+                </ol>
+                <div class="platforms">
+                  <a class="btn" href={config.repo}>
+                    {copy.download.source}
+                  </a>
+                </div>
+                <p class="caption">{copy.download.note}</p>
+              </>
+            )
+          }
+        </div>
+      </section>
+
+      <!-- questions -->
+      <section id="faq">
+        <div class="wrap">
+          <p class="kicker">{copy.faq.kicker}</p>
+          <h2>{copy.faq.title}</h2>
+          <div class="faq-list">
+            {
+              copy.faq.items.map((item) => (
+                <div>
+                  <h3>{item.q}</h3>
+                  <p>{item.a}</p>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="foot">
+      <div class="wrap">
+        <h2>{copy.foot.title}</h2>
+        <p>{copy.foot.body}</p>
+        <ul class="foot-links">
+          {copy.foot.links.map((link) => <li><a href={link.href}>{link.label}</a></li>)}
+        </ul>
+        <p class="legal">{copy.foot.legal}</p>
+      </div>
+    </footer>
+  </body>
+</html>

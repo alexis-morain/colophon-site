@@ -1,0 +1,52 @@
+---
+/**
+ * A spread, drawn to scale: one unit is one millimetre, so this is a real
+ * 21 × 21 cm album seen flat, with its 3 mm bleed sitting behind the cut and
+ * crop marks where the guillotine lands. It is a diagram, not decoration:
+ * the geometry it shows is the one the app renders and the preflight checks.
+ */
+interface Props {
+  trim: string;
+  bleed: string;
+  fold: string;
+}
+
+const { trim, bleed, fold } = Astro.props;
+
+// Page margin and cell layout, in millimetres from the trim edge.
+const M = 14;
+const CELL = [
+  // left page: one tall photograph
+  { x: M, y: M, w: 210 - 2 * M, h: 210 - 2 * M },
+  // right page: two stacked, unequal, because equal halves read as a grid
+  { x: 210 + M, y: M, w: 210 - 2 * M, h: 104 },
+  { x: 210 + M, y: M + 114, w: 210 - 2 * M, h: 68 },
+];
+---
+
+<figure class="diagram">
+  <svg viewBox="-22 -26 464 268" role="img" aria-labelledby="spread-title">
+    <title id="spread-title">{trim}</title>
+
+    <!-- bleed, behind the cut -->
+    <rect class="d-bleed" x="-3" y="-3" width="426" height="216" />
+
+    <!-- the two pages -->
+    <rect class="d-page" x="0.5" y="0.5" width="419" height="209" />
+    <line class="d-fold" x1="210" y1="0" x2="210" y2="210" />
+
+    {CELL.map((c) => <rect class="d-cell" x={c.x} y={c.y} width={c.w} height={c.h} />)}
+
+    <!-- crop marks: outside the trim, offset from it, as a printer sets them -->
+    <g class="d-cut">
+      <line x1="-14" y1="0" x2="-6" y2="0" /><line x1="0" y1="-14" x2="0" y2="-6" />
+      <line x1="434" y1="0" x2="426" y2="0" /><line x1="420" y1="-14" x2="420" y2="-6" />
+      <line x1="-14" y1="210" x2="-6" y2="210" /><line x1="0" y1="224" x2="0" y2="216" />
+      <line x1="434" y1="210" x2="426" y2="210" /><line x1="420" y1="224" x2="420" y2="216" />
+    </g>
+
+    <text class="d-label" x="0" y="-18">{trim} · 420 × 210 mm</text>
+    <text class="d-label" x="426" y="232" text-anchor="end">{bleed}</text>
+    <text class="d-label" x="215" y="232">{fold}</text>
+  </svg>
+</figure>
