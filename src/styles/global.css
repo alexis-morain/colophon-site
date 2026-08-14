@@ -215,6 +215,15 @@ kbd {
   color: var(--ink);
 }
 
+/* On a narrow screen the section anchors wrap onto three lines and buy
+   nothing: the page is short and thumbs scroll. The language switch is the
+   one thing that has to stay reachable, so it is the one thing that stays. */
+@media (max-width: 40rem) {
+  .masthead nav a:not(.lang) {
+    display: none;
+  }
+}
+
 /* ---- hero -------------------------------------------------------------- */
 
 .hero {
