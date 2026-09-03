@@ -223,12 +223,12 @@ export const fr: Copy = {
   meta: {
     title: "Colophon, un album photo depuis un dossier de photos",
     description:
-      "Logiciel libre qui transforme un dossier de photos en album prÃªt Ã  imprimer en moins d’une minute. Hors ligne, sans compte, et vous imprimez oÃ¹ vous voulez.",
+      "Logiciel libre qui transforme un dossier de photos en album prêt à imprimer en moins d’une minute. Hors ligne, sans compte, et vous imprimez où vous voulez.",
   },
   nav: { work: "Comment ça marche", promise: "Ce qui est garanti", print: "Impression", faq: "Questions" },
   hero: {
     title: "Un dossier de photos entre.<br />Un livre <em>qu’on montre</em> en sort.",
-    lede: "Colophon lit le dossier, Ã©carte ce qui affaiblirait l’album, compose toutes les planches, et vous rend un brouillon avec lequel vous pouvez discuter. Tout tourne sur votre machine, sans compte, et le PDF part chez l’imprimeur de votre choix.",
+    lede: "Colophon lit le dossier, écarte ce qui affaiblirait l’album, compose toutes les planches, et vous rend un brouillon avec lequel vous pouvez discuter. Tout tourne sur votre machine, sans compte, et le PDF part chez l’imprimeur de votre choix.",
     cta: "Obtenir Colophon",
     ctaAlt: "Lire le code",
     note: "Libre et gratuit, GPL-3.0. macOS aujourd’hui, Windows ensuite.",
@@ -238,7 +238,7 @@ export const fr: Copy = {
     from: { n: "575", label: "photos dans le dossier" },
     to: { n: "152", label: "dans le livre fini" },
     tail:
-      "sur <b>48 planches</b> et <b>12 chapitres</b>, en moins d’une minute, chaque photo Ã©cartÃ©e Ã©tant listÃ©e et expliquÃ©e.",
+      "sur <b>48 planches</b> et <b>12 chapitres</b>, en moins d’une minute, chaque photo écartée étant listée et expliquée.",
     pipeline: ["lecture", "analyse", "curation", "composition", "export"],
     caption: "Un album 21 × 21 cm, composé depuis un dossier de vacances, sans une retouche à la main.",
   },
@@ -249,44 +249,44 @@ export const fr: Copy = {
       "Les contraintes sont donc écrites en dur et vérifiées par un linter qui fait échouer la compilation, au lieu de rester des intentions. Le Composer ne fera jamais :",
     items: [
       "une photo portrait dans une case paysage, ni l’inverse",
-      "un visage dÃ©tectÃ© qui touche un bord recadrÃ©, Ã  moins de 4 % de l’image",
+      "un visage détecté qui touche un bord recadré, à moins de 4 % de l’image",
       "deux quasi-doublons, ou deux prises de la même scène, sur une même planche",
       "une ouverture de chapitre sur une photo faible, ni cinq planches sans respiration",
-      "quatre fois le mÃªme gabarit d’affilÃ©e",
+      "quatre fois le même gabarit d’affilée",
       "la moindre retouche d’un pixel de votre photo",
     ],
     tail:
-      "Dix compteurs vÃ©rifient l’album fini et refusent de passer si l’un d’eux se dÃ©clenche. Quand une correction revient, elle devient un compteur de plus.",
+      "Dix compteurs vérifient l’album fini et refusent de passer si l’un d’eux se déclenche. Quand une correction revient, elle devient un compteur de plus.",
   },
   sort: {
     kicker: "La vue Tri",
-    title: "Il dit ce qu’il a Ã©cartÃ©, et pourquoi.",
+    title: "Il dit ce qu’il a écarté, et pourquoi.",
     body: [
       "Chaque photo écartée est montrée, groupée par la raison qui lui a coûté sa place : trop floue, quasi-doublon, autre prise de la même scène, définition trop faible pour ce format, panorama qui ne tient pas dans la page.",
-      "Ã cÃ´tÃ© de chacune se trouve la photo qui l’a emportÃ©. Un clic la remet dans le livre.",
-      "C’est la partie que personne d’autre ne montre, et c’est elle qui fait la diffÃ©rence entre une curation automatique Ã  laquelle on se fie et une curation qu’il faut vÃ©rifier.",
+      "À côté de chacune se trouve la photo qui l’a emporté. Un clic la remet dans le livre.",
+      "C’est la partie que personne d’autre ne montre, et c’est elle qui fait la différence entre une curation automatique à laquelle on se fie et une curation qu’il faut vérifier.",
     ],
-    figure: "Une planche s’affiche Ã  sa taille rognÃ©e. Le fond perdu reste derriÃ¨re la coupe, lÃ  oÃ¹ le massicot le prendra.",
+    figure: "Une planche s’affiche à sa taille rognée. Le fond perdu reste derrière la coupe, là où le massicot le prendra.",
   },
   print: {
     kicker: "Impression",
-    title: "Un PDF ordinaire, Ã  300 dpi, que n’importe quel imprimeur accepte.",
+    title: "Un PDF ordinaire, à 300 dpi, que n’importe quel imprimeur accepte.",
     body: [
-      "Aucun partenaire imposÃ©, aucun filigrane, aucun logo, aucun code-barres de notre part sur votre livre. Les polices sont incorporÃ©es, le fond perdu suit le profil de l’imprimeur, et l’aperÃ§u montre la page Ã  sa taille rognÃ©e plutÃ´t que de promettre une marge que le massicot emportera.",
+      "Aucun partenaire imposé, aucun filigrane, aucun logo, aucun code-barres de notre part sur votre livre. Les polices sont incorporées, le fond perdu suit le profil de l’imprimeur, et l’aperçu montre la page à sa taille rognée plutôt que de promettre une marge que le massicot emportera.",
       "Avant tout envoi, un prévol passe : pagination, fond perdu par bord, espace colorimétrique, polices incorporées, résolution effective case par case, zone sûre. Chaque message nomme la planche et la cause en toutes lettres, et donne le geste qui répare.",
-      "Rien n’Ã©choue jamais en silence, surtout pas au dernier Ã©cran du parcours.",
+      "Rien n’échoue jamais en silence, surtout pas au dernier écran du parcours.",
     ],
     profiles:
-      "Quatre profils d’imprimeur sont livrÃ©s, et ils divergent sur presque chaque champ : fond perdu, un fichier ou deux, espace colorimÃ©trique, qui calcule le dos. C’est exactement pour Ã§a qu’un profil est une donnÃ©e, et jamais une rÃ¨gle enfouie dans le code.",
+      "Quatre profils d’imprimeur sont livrés, et ils divergent sur presque chaque champ : fond perdu, un fichier ou deux, espace colorimétrique, qui calcule le dos. C’est exactement pour ça qu’un profil est une donnée, et jamais une règle enfouie dans le code.",
     code: "colophon --prevol --profil cloudprinter -o mon-album",
   },
   privacy: {
     kicker: "Ce qu’il ne fait pas",
     title: "Aucun compte, aucun cloud, aucune télémétrie, jamais.",
     body: [
-      "Il n’y a pas de serveur oÃ¹ envoyer vos photos. DÃ©branchez le rÃ©seau, tout continue de fonctionner, export compris.",
-      "L’album est un dossier sur votre disque avec un JSON lisible dedans, rÃ©parable dans un Ã©diteur de texte. Vos photos d’origine sont lues et jamais modifiÃ©es.",
-      "Rien ici n’expire, ne tÃ©lÃ©phone Ã  la maison, ni ne retient un projet derriÃ¨re un identifiant. L’absence est le produit.",
+      "Il n’y a pas de serveur où envoyer vos photos. Débranchez le réseau, tout continue de fonctionner, export compris.",
+      "L’album est un dossier sur votre disque avec un JSON lisible dedans, réparable dans un éditeur de texte. Vos photos d’origine sont lues et jamais modifiées.",
+      "Rien ici n’expire, ne téléphone à la maison, ni ne retient un projet derrière un identifiant. L’absence est le produit.",
     ],
   },
   download: {
@@ -298,10 +298,10 @@ export const fr: Copy = {
       { code: "cargo build --release", note: "Compile le moteur et la ligne de commande." },
       {
         code: "./target/release/colophon ~/Pictures/vacances -o album --format carre-21",
-        note: "Compose l’album, puis Ã©crit album.json et un PDF d’aperÃ§u Ã  cÃ´tÃ©.",
+        note: "Compose l’album, puis écrit album.json et un PDF d’aperçu à côté.",
       },
     ],
-    releasedLede: "TÃ©lÃ©chargez, ouvrez, dÃ©signez un dossier. Aucune question d’installeur, aucun compte.",
+    releasedLede: "Téléchargez, ouvrez, désignez un dossier. Aucune question d’installeur, aucun compte.",
     mac: "Télécharger pour macOS",
     win: "Télécharger pour Windows",
     linux: "Linux compile et tourne depuis les sources. Il manque un paquet signé.",
@@ -314,19 +314,19 @@ export const fr: Copy = {
     items: [
       {
         q: "Je peux imprimer où je veux ?",
-        a: "Oui. La sortie est un PDF standard Ã  300 dpi et ce logiciel n’a aucun imprimeur partenaire Ã  vous imposer. Chez un imprimeur, dans un labo, ou chez vous.",
+        a: "Oui. La sortie est un PDF standard à 300 dpi et ce logiciel n’a aucun imprimeur partenaire à vous imposer. Chez un imprimeur, dans un labo, ou chez vous.",
       },
       {
         q: "Mes photos partent dans un cloud ?",
-        a: "Non, il n’y a pas de serveur. Colophon fonctionne rÃ©seau coupÃ©, et continuera de fonctionner le jour oÃ¹ ce projet cessera d’Ãªtre maintenu.",
+        a: "Non, il n’y a pas de serveur. Colophon fonctionne réseau coupé, et continuera de fonctionner le jour où ce projet cessera d’être maintenu.",
       },
       {
         q: "C’est de l’IA ?",
-        a: "Aucun modÃ¨le, aucun prompt, aucun appel rÃ©seau. Des hashs perceptuels pour les doublons, une mesure de nettetÃ©, l’exposition, et de la dÃ©tection de visages pour ne pas couper les tÃªtes. Tout est local, tout est expliquÃ©, tout se corrige. Si un mode IA arrive un jour, il tournera avec votre clÃ©, restera optionnel, et ne dÃ©cidera jamais Ã  votre place.",
+        a: "Aucun modèle, aucun prompt, aucun appel réseau. Des hashs perceptuels pour les doublons, une mesure de netteté, l’exposition, et de la détection de visages pour ne pas couper les têtes. Tout est local, tout est expliqué, tout se corrige. Si un mode IA arrive un jour, il tournera avec votre clé, restera optionnel, et ne décidera jamais à votre place.",
       },
       {
         q: "Pourquoi pas InDesign ou Scribus ?",
-        a: "Parce qu’ils partent d’une page blanche, et que la page blanche n’est pas le problÃ¨me. Le problÃ¨me, c’est de choisir 150 photos sur 600 et de les poser pour que le livre se lise. Pour composer chaque planche Ã  la main, InDesign reste meilleur, et ce logiciel ne cherche pas Ã  le remplacer.",
+        a: "Parce qu’ils partent d’une page blanche, et que la page blanche n’est pas le problème. Le problème, c’est de choisir 150 photos sur 600 et de les poser pour que le livre se lise. Pour composer chaque planche à la main, InDesign reste meilleur, et ce logiciel ne cherche pas à le remplacer.",
       },
       {
         q: "Et mes fichiers HEIC ?",
@@ -334,22 +334,22 @@ export const fr: Copy = {
       },
       {
         q: "Vous gagnez de l’argent comment ?",
-        a: "Pas avec Ã§a. Le logiciel est gratuit et le restera, l’export PDF pleine rÃ©solution aussi, hors ligne et sans compte. Une commande intÃ©grÃ©e optionnelle viendra peut-Ãªtre, pour ceux qui prÃ©fÃ¨rent cliquer une fois plutÃ´t que gÃ©rer un imprimeur. Si elle n’arrive jamais, rien ne change ici.",
+        a: "Pas avec ça. Le logiciel est gratuit et le restera, l’export PDF pleine résolution aussi, hors ligne et sans compte. Une commande intégrée optionnelle viendra peut-être, pour ceux qui préfèrent cliquer une fois plutôt que gérer un imprimeur. Si elle n’arrive jamais, rien ne change ici.",
       },
       {
         q: "Windows ? Linux ?",
-        a: "Windows est la prochaine Ã©tape, et c’est un vrai portage. Linux compile et tourne depuis les sources ; il manque un paquet signÃ© et quelqu’un pour le tester sur plus d’une distribution.",
+        a: "Windows est la prochaine étape, et c’est un vrai portage. Linux compile et tourne depuis les sources ; il manque un paquet signé et quelqu’un pour le tester sur plus d’une distribution.",
       },
       {
         q: "CMJN, layflat, couverture rigide ?",
-        a: "Pas encore. L’espace colorimÃ©trique et la reliure vivent dans le profil d’imprimeur, donc ils arrivent un profil Ã  la fois, quand un vrai imprimeur les rÃ©clame.",
+        a: "Pas encore. L’espace colorimétrique et la reliure vivent dans le profil d’imprimeur, donc ils arrivent un profil à la fois, quand un vrai imprimeur les réclame.",
       },
     ],
   },
   foot: {
     title: "Colophon",
     body:
-      "ComposÃ© en Charter et Avenir Next. FabriquÃ© avec Astro, sans traqueur, sans cookie, sans police servie depuis le serveur de quelqu’un d’autre. La police de l’album, dans l’app, est Source Sans 3, incorporÃ©e dans chaque PDF exportÃ©.",
+      "Composé en Charter et Avenir Next. Fabriqué avec Astro, sans traqueur, sans cookie, sans police servie depuis le serveur de quelqu’un d’autre. La police de l’album, dans l’app, est Source Sans 3, incorporée dans chaque PDF exporté.",
     links: [
       { label: "Code source", href: config.repo },
       { label: "Signaler un problème", href: `${config.repo}/issues/new/choose` },
