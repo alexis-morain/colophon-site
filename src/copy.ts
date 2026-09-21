@@ -139,9 +139,9 @@ export const en: Copy = {
     kicker: "What it does not do",
     title: "No account, no cloud, no telemetry, ever.",
     body: [
-      "There is no server to send your photographs to. Pull the network cable and everything still works, the export included.",
+      "There is no server to send your photographs to. Pull the network cable and everything still works, the export included. The one call Colophon makes is a question at launch, to GitHub, about whether a newer version exists; it carries nothing of your photographs and nothing of your album, and Preferences turns it off.",
       "The album is a folder on your disk with a readable JSON file in it, which you can repair in a text editor. Your original photographs are read and never modified.",
-      "Nothing here expires, phones home, or holds a project hostage behind a login. The absence is the product.",
+      "Nothing here expires, reports on you, or holds a project hostage behind a login. The absence is the product.",
     ],
   },
   download: {
@@ -284,9 +284,9 @@ export const fr: Copy = {
     kicker: "Ce qu’il ne fait pas",
     title: "Aucun compte, aucun cloud, aucune télémétrie, jamais.",
     body: [
-      "Il n’y a pas de serveur où envoyer vos photos. Débranchez le réseau, tout continue de fonctionner, export compris.",
+      "Il n’y a pas de serveur où envoyer vos photos. Débranchez le réseau, tout continue de fonctionner, export compris. Le seul appel que Colophon passe est une question au lancement, à GitHub, pour savoir s’il existe une version plus récente ; elle n’emporte rien de vos photos et rien de votre album, et les Préférences la coupent.",
       "L’album est un dossier sur votre disque avec un JSON lisible dedans, réparable dans un éditeur de texte. Vos photos d’origine sont lues et jamais modifiées.",
-      "Rien ici n’expire, ne téléphone à la maison, ni ne retient un projet derrière un identifiant. L’absence est le produit.",
+      "Rien ici n’expire, ne vous surveille, ni ne retient un projet derrière un identifiant. L’absence est le produit.",
     ],
   },
   download: {
