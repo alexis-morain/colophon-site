@@ -86,14 +86,14 @@ export const en: Copy = {
     lede: "Colophon reads the folder, drops what would weaken the album, lays out every spread, and hands you a draft you can argue with. It runs on your machine, it has no account, and the finished PDF goes to whichever print shop you like.",
     cta: "Get Colophon",
     ctaAlt: "Read the source",
-    note: "Free and open source, GPL-3.0. macOS today, Windows next.",
+    note: "Free and open source, GPL-3.0. For macOS and Windows.",
   },
   run: {
     kicker: "One run",
-    from: { n: "575", label: "photographs in the folder" },
-    to: { n: "152", label: "in the finished book" },
+    from: { n: "572", label: "photographs in the folder" },
+    to: { n: "98", label: "in the finished book" },
     tail:
-      "on <b>48 spreads</b> across <b>12 chapters</b>, in under a minute, with every discarded frame listed and explained.",
+      "on <b>50 spreads</b> across <b>8 chapters</b>, in under a minute, with every discarded frame listed and explained.",
     pipeline: ["scan", "analyse", "curate", "compose", "export"],
     caption: "A 21 × 21 cm album, composed from a holiday folder, untouched by hand.",
   },
@@ -106,19 +106,19 @@ export const en: Copy = {
       "put a portrait photograph in a landscape cell, or the reverse",
       "let a detected face touch a cropped edge, closer than 4 % of the frame",
       "place two near-duplicates, or two shots of the same scene, on one spread",
-      "open a chapter on a weak frame, or run five spreads without a breathing page",
+      "open a chapter on a weak frame, or run past the pace you chose without a breathing page",
       "repeat the same template four times in a row",
       "retouch a single pixel of your photograph",
     ],
     tail:
-      "Ten counters check the finished album and refuse to pass if any of them trips. When a correction keeps coming back, it becomes a new counter.",
+      "Fourteen counters check the finished album. Ten judge the composer and fail the audit past their tolerance; four count what a hand placed or what the typeface cannot draw, and only warn. When a correction keeps coming back, it becomes a new counter.",
   },
   sort: {
     kicker: "The Sort view",
     title: "It tells you what it dropped, and why.",
     body: [
-      "Every discarded photograph is shown, grouped by the reason it lost its place: too soft, near-duplicate, another shot of the same scene, too small to print at this size, panorama that does not fit the page.",
-      "Next to each one sits the frame it lost to. One click puts it back in the book.",
+      "Every discarded photograph is shown, grouped by the reason it lost its place: no room left in the book, near-duplicate, another shot of the same scene, too small to print at this size, panorama that does not fit the page.",
+      "When it lost to another frame, that frame sits next to it. A double-click puts it back in the book.",
       "This is the part nobody else shows you, and it is the part that makes automatic curation something you can trust rather than something you have to check.",
     ],
     figure: "A spread is drawn at its trimmed size. The bleed sits behind the cut, where the guillotine will take it.",
@@ -148,7 +148,7 @@ export const en: Copy = {
     kicker: "Get it",
     title: "Two commands, today.",
     unreleasedLede:
-      "Signed binaries are not published yet. Building from source takes a Rust toolchain, Node 20, and a couple of minutes.",
+      "Binaries are not published yet. Building from source takes a Rust toolchain, Node 20, and a couple of minutes.",
     unreleasedSteps: [
       { code: "cargo build --release", note: "Builds the engine and the command line." },
       {
@@ -156,10 +156,11 @@ export const en: Copy = {
         note: "Composes the album, then writes album.json and a preview PDF next to it.",
       },
     ],
-    releasedLede: "Download, open, point it at a folder. No installer questions, no account.",
+    releasedLede:
+      "Download, open, point it at a folder. No account. The app is not signed by Apple, so macOS refuses the first opening: right-click it and choose Open, as the README shows.",
     mac: "Download for macOS",
     win: "Download for Windows",
-    linux: "Linux builds from source and runs. A signed package is still missing.",
+    linux: "Linux should build from source, but nobody has checked the app there yet.",
     source: "Build from source",
     note: "Requirements and the full walkthrough are in the repository’s README.",
   },
@@ -177,7 +178,7 @@ export const en: Copy = {
       },
       {
         q: "Is this AI?",
-        a: "No model, no prompt, no cloud inference. Perceptual hashes for duplicates, a sharpness measure, exposure, and face detection so heads do not get sliced. All local, all explained, all overridable. If an AI mode ever ships it will use your own key, stay optional, and never decide anything by itself.",
+        a: "No language model, no prompt, no cloud inference. Perceptual hashes for duplicates, a sharpness measure, exposure, and face detection so heads do not get sliced. All local, all explained, all overridable. If an AI mode ever ships it will use your own key, stay optional, and never decide anything by itself.",
       },
       {
         q: "Why not just use InDesign or Scribus?",
@@ -185,26 +186,26 @@ export const en: Copy = {
       },
       {
         q: "What about my HEIC files?",
-        a: "Read natively through the system decoder, ImageIO on macOS and WIC on Windows. Nothing to install.",
+        a: "On macOS, read natively through the system decoder, ImageIO. Nothing to install. On Windows and Linux they are not decoded yet: counted and named on screen, never silently dropped.",
       },
       {
         q: "How do you make money?",
-        a: "Not from this. The software is free and stays free, and so does the full-resolution PDF export, offline and without an account. An optional way to order a printed copy may come later, for people who would rather click once than deal with a print shop. If it never arrives, nothing here changes.",
+        a: "Not from this. The software is free and stays free, and so does the full-resolution PDF export, offline and without an account.",
       },
       {
         q: "Windows? Linux?",
-        a: "Windows is next, and it is a real port rather than a checkbox. Linux compiles and runs from source today; what is missing is a signed package and someone to test it on more than one distribution.",
+        a: "The release chain builds a Windows installer, but nobody has run the app on a real Windows machine yet, and HEIC, RAW and the Apple Photos import stay on macOS. Linux has no installer: it should build from source, but nobody has checked the app there yet.",
       },
       {
         q: "CMYK, layflat, hard covers?",
-        a: "Not yet. Colour space and binding live in the printer profile, so they arrive one profile at a time, when a real print shop asks for them.",
+        a: "Not CMYK, not layflat. Colour space and binding live in the printer profile, so they arrive one profile at a time, when a real print shop asks for them. The Cloudprinter profile already renders the flat cover sheet of its hardcover, spine included.",
       },
     ],
   },
   foot: {
     title: "Colophon",
     body:
-      "Set in Charter and Avenir Next. Built with Astro, no tracker, no cookie, no font served from someone else’s server. The album typeface inside the app is Source Sans 3, embedded in every PDF it exports.",
+      "Set in Charter and Avenir Next. Built with Astro, no tracker, no cookie, no font served from someone else’s server. Inside the app, the album’s default typeface is Source Sans 3, and the one the album uses is embedded in every PDF it exports.",
     links: [
       { label: "Source code", href: config.repo },
       { label: "Report a problem", href: `${config.repo}/issues/new/choose` },
@@ -231,14 +232,14 @@ export const fr: Copy = {
     lede: "Colophon lit le dossier, écarte ce qui affaiblirait l’album, compose toutes les planches, et vous rend un brouillon avec lequel vous pouvez discuter. Tout tourne sur votre machine, sans compte, et le PDF part chez l’imprimeur de votre choix.",
     cta: "Obtenir Colophon",
     ctaAlt: "Lire le code",
-    note: "Libre et gratuit, GPL-3.0. macOS aujourd’hui, Windows ensuite.",
+    note: "Libre et gratuit, GPL-3.0. Pour macOS et Windows.",
   },
   run: {
     kicker: "Une composition",
-    from: { n: "575", label: "photos dans le dossier" },
-    to: { n: "152", label: "dans le livre fini" },
+    from: { n: "572", label: "photos dans le dossier" },
+    to: { n: "98", label: "dans le livre fini" },
     tail:
-      "sur <b>48 planches</b> et <b>12 chapitres</b>, en moins d’une minute, chaque photo écartée étant listée et expliquée.",
+      "sur <b>50 planches</b> et <b>8 chapitres</b>, en moins d’une minute, chaque photo écartée étant listée et expliquée.",
     pipeline: ["lecture", "analyse", "curation", "composition", "export"],
     caption: "Un album 21 × 21 cm, composé depuis un dossier de vacances, sans une retouche à la main.",
   },
@@ -251,19 +252,19 @@ export const fr: Copy = {
       "une photo portrait dans une case paysage, ni l’inverse",
       "un visage détecté qui touche un bord recadré, à moins de 4 % de l’image",
       "deux quasi-doublons, ou deux prises de la même scène, sur une même planche",
-      "une ouverture de chapitre sur une photo faible, ni cinq planches sans respiration",
+      "une ouverture de chapitre sur une photo faible, ni plus de planches sans respiration que le rythme choisi n’en permet",
       "quatre fois le même gabarit d’affilée",
       "la moindre retouche d’un pixel de votre photo",
     ],
     tail:
-      "Dix compteurs vérifient l’album fini et refusent de passer si l’un d’eux se déclenche. Quand une correction revient, elle devient un compteur de plus.",
+      "Quatorze compteurs vérifient l’album fini. Dix jugent le Composer et font échouer l’audit au-delà de leur tolérance ; quatre comptent ce qu’une main a posé ou ce que la police ne dessine pas, et ne font qu’avertir. Quand une correction revient, elle devient un compteur de plus.",
   },
   sort: {
     kicker: "La vue Tri",
     title: "Il dit ce qu’il a écarté, et pourquoi.",
     body: [
-      "Chaque photo écartée est montrée, groupée par la raison qui lui a coûté sa place : trop floue, quasi-doublon, autre prise de la même scène, définition trop faible pour ce format, panorama qui ne tient pas dans la page.",
-      "À côté de chacune se trouve la photo qui l’a emporté. Un clic la remet dans le livre.",
+      "Chaque photo écartée est montrée, groupée par la raison qui lui a coûté sa place : plus de place dans l’album, quasi-doublon, autre prise de la même scène, définition trop faible pour ce format, panorama qui ne tient pas dans la page.",
+      "Quand une autre photo l’a emporté, elle est montrée à côté. Un double-clic la remet dans le livre.",
       "C’est la partie que personne d’autre ne montre, et c’est elle qui fait la différence entre une curation automatique à laquelle on se fie et une curation qu’il faut vérifier.",
     ],
     figure: "Une planche s’affiche à sa taille rognée. Le fond perdu reste derrière la coupe, là où le massicot le prendra.",
@@ -293,7 +294,7 @@ export const fr: Copy = {
     kicker: "Installer",
     title: "Deux commandes, aujourd’hui.",
     unreleasedLede:
-      "Les binaires signés ne sont pas encore publiés. Compiler depuis les sources demande une chaîne Rust, Node 20, et deux minutes.",
+      "Les binaires ne sont pas encore publiés. Compiler depuis les sources demande une chaîne Rust, Node 20, et deux minutes.",
     unreleasedSteps: [
       { code: "cargo build --release", note: "Compile le moteur et la ligne de commande." },
       {
@@ -301,10 +302,11 @@ export const fr: Copy = {
         note: "Compose l’album, puis écrit album.json et un PDF d’aperçu à côté.",
       },
     ],
-    releasedLede: "Téléchargez, ouvrez, désignez un dossier. Aucune question d’installeur, aucun compte.",
+    releasedLede:
+      "Téléchargez, ouvrez, désignez un dossier. Aucun compte. L’app n’est pas signée par Apple, donc macOS refuse la première ouverture : clic droit, puis Ouvrir, comme le montre le README.",
     mac: "Télécharger pour macOS",
     win: "Télécharger pour Windows",
-    linux: "Linux compile et tourne depuis les sources. Il manque un paquet signé.",
+    linux: "Linux devrait compiler depuis les sources, mais personne n’y a encore vérifié l’app.",
     source: "Compiler depuis les sources",
     note: "Les prérequis et la marche complète sont dans le README du dépôt.",
   },
@@ -322,7 +324,7 @@ export const fr: Copy = {
       },
       {
         q: "C’est de l’IA ?",
-        a: "Aucun modèle, aucun prompt, aucun appel réseau. Des hashs perceptuels pour les doublons, une mesure de netteté, l’exposition, et de la détection de visages pour ne pas couper les têtes. Tout est local, tout est expliqué, tout se corrige. Si un mode IA arrive un jour, il tournera avec votre clé, restera optionnel, et ne décidera jamais à votre place.",
+        a: "Aucun modèle de langage, aucun prompt, aucun appel réseau. Des hashs perceptuels pour les doublons, une mesure de netteté, l’exposition, et de la détection de visages pour ne pas couper les têtes. Tout est local, tout est expliqué, tout se corrige. Si un mode IA arrive un jour, il tournera avec votre clé, restera optionnel, et ne décidera jamais à votre place.",
       },
       {
         q: "Pourquoi pas InDesign ou Scribus ?",
@@ -330,26 +332,26 @@ export const fr: Copy = {
       },
       {
         q: "Et mes fichiers HEIC ?",
-        a: "Lus nativement par le décodeur système, ImageIO sur macOS et WIC sur Windows. Rien à installer.",
+        a: "Sur macOS, lus nativement par le décodeur système, ImageIO. Rien à installer. Sur Windows et Linux, ils ne sont pas encore décodés : comptés et nommés à l’écran, jamais écartés en silence.",
       },
       {
         q: "Vous gagnez de l’argent comment ?",
-        a: "Pas avec ça. Le logiciel est gratuit et le restera, l’export PDF pleine résolution aussi, hors ligne et sans compte. Une commande intégrée optionnelle viendra peut-être, pour ceux qui préfèrent cliquer une fois plutôt que gérer un imprimeur. Si elle n’arrive jamais, rien ne change ici.",
+        a: "Pas avec ça. Le logiciel est gratuit et le restera, l’export PDF pleine résolution aussi, hors ligne et sans compte.",
       },
       {
         q: "Windows ? Linux ?",
-        a: "Windows est la prochaine étape, et c’est un vrai portage. Linux compile et tourne depuis les sources ; il manque un paquet signé et quelqu’un pour le tester sur plus d’une distribution.",
+        a: "La chaîne de publication fabrique un installeur Windows, mais personne n’a encore lancé l’app sur une vraie machine Windows, et le HEIC, le RAW et l’import depuis Photos restent sur macOS. Linux n’a pas d’installeur : l’app devrait compiler depuis les sources, mais personne ne l’y a encore vérifiée.",
       },
       {
         q: "CMJN, layflat, couverture rigide ?",
-        a: "Pas encore. L’espace colorimétrique et la reliure vivent dans le profil d’imprimeur, donc ils arrivent un profil à la fois, quand un vrai imprimeur les réclame.",
+        a: "Ni CMJN, ni layflat. L’espace colorimétrique et la reliure vivent dans le profil d’imprimeur, donc ils arrivent un profil à la fois, quand un vrai imprimeur les réclame. Le profil Cloudprinter rend déjà la feuille à plat de sa couverture rigide, dos compris.",
       },
     ],
   },
   foot: {
     title: "Colophon",
     body:
-      "Composé en Charter et Avenir Next. Fabriqué avec Astro, sans traqueur, sans cookie, sans police servie depuis le serveur de quelqu’un d’autre. La police de l’album, dans l’app, est Source Sans 3, incorporée dans chaque PDF exporté.",
+      "Composé en Charter et Avenir Next. Fabriqué avec Astro, sans traqueur, sans cookie, sans police servie depuis le serveur de quelqu’un d’autre. Dans l’app, la police de l’album est par défaut Source Sans 3, et celle que l’album porte est incorporée dans chaque PDF exporté.",
     links: [
       { label: "Code source", href: config.repo },
       { label: "Signaler un problème", href: `${config.repo}/issues/new/choose` },
