@@ -18,10 +18,10 @@
   --ink: #17150f;
   --body: #2c281f;
   --muted: #5f5546;
-  --accent: #c2532b;
-  /* The same terracotta, dropped until it clears 4.5:1 on paper. Rules and
-     display type use --accent; anything at reading size uses this one. */
-  --accent-text: #a8401d;
+  /* The app's terracotta, to the hex (styles.css, --accent). It clears 4.5:1
+     on paper (4.89) and on the sunk paper (4.51), so the same ink serves rules,
+     display type and reading-size text alike. */
+  --accent: #b04a1f;
   --rule: rgba(23, 21, 15, 0.16);
   --rule-faint: rgba(23, 21, 15, 0.08);
 
@@ -44,8 +44,8 @@
     --ink: #f4efe4;
     --body: #ede6d8;
     --muted: #a2998a;
-    --accent: #d9663a;
-    --accent-text: #d9663a;
+    /* The app's dark terracotta: 6.13:1 on this paper. */
+    --accent: #e07a4a;
     --rule: rgba(237, 230, 216, 0.18);
     --rule-faint: rgba(237, 230, 216, 0.09);
   }
@@ -294,7 +294,7 @@ kbd {
 
 .btn:hover {
   transform: translateY(-2px);
-  background: var(--accent-text);
+  background: var(--accent);
 }
 
 .btn-quiet {
@@ -340,7 +340,7 @@ section {
   font-family: var(--font-ui);
   font-size: 0.8rem;
   font-weight: 500;
-  color: var(--accent-text);
+  color: var(--accent);
 }
 
 .kicker::before {

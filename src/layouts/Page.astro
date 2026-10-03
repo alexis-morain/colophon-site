@@ -36,7 +36,8 @@ const alt = new URL(url(copy.altHref), Astro.site).href;
     <meta name="description" content={copy.meta.description} />
     <link rel="canonical" href={canonical} />
     <link rel="alternate" hreflang={copy.lang === "en" ? "fr" : "en"} href={alt} />
-    <link rel="icon" href={url("/favicon.svg")} type="image/svg+xml" />
+    <!-- The app's own icon, the 32 px file from src-tauri/icons, byte for byte. -->
+    <link rel="icon" href={url("/favicon.png")} type="image/png" sizes="32x32" />
     <!-- Off the index until the launch: the page is reachable by its URL, for
          review and for the first circle, but it does not turn up in a search
          for "photo book" before the captures and the trademark check exist.

@@ -78,7 +78,8 @@ dans le layout, pas dans `copy.ts` : il appartient au dessin.
 ## Ce qui a été vérifié
 
 Contraste au-dessus de 4,5:1 sur tout le corps de texte, dans les deux thèmes
-clair et sombre (le terracotta descend à `--accent-text` dès qu'il sert à lire,
-il reste saturé pour les filets et les grands chiffres). Aucun débordement
+clair et sombre. Le terracotta est celui de l'app au code près, `#b04a1f` en
+clair (4,89:1 sur la crème) et `#e07a4a` en sombre (6,13:1) : une seule
+variable, `--accent`, sert aux filets comme au texte. Aucun débordement
 horizontal à 375 px comme à 1280. Aucun niveau de titre sauté. Rayon de bordure
 à zéro partout, aucune ombre portée, aucune police externe. Interligne 1,62.
