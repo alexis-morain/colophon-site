@@ -1,0 +1,54 @@
+---
+import "../styles/global.css";
+
+// The two pages Stripe sends a buyer back to once the payment page closes. The
+// relay does not know the app's language, so each page says it twice, French
+// first. They are linked from nowhere and stay out of the index for good: they
+// only make sense to someone who just left Stripe's page.
+
+interface Bloc {
+  title: string;
+  body: string[];
+}
+
+interface Props {
+  title: string;
+  fr: Bloc;
+  en: Bloc;
+}
+
+const { title, fr, en } = Astro.props;
+const root = import.meta.env.BASE_URL.replace(/\/$/, "");
+---
+
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <link rel="icon" href={`${root}/favicon.png`} type="image/png" sizes="32x32" />
+    <meta name="robots" content="noindex, nofollow" />
+  </head>
+
+  <body>
+    <div class="wrap">
+      <header class="masthead">
+        <span class="mark">Colophon</span>
+      </header>
+    </div>
+
+    <main id="main">
+      <div class="wrap">
+        <div class="hero">
+          <h1>{fr.title}</h1>
+          {fr.body.map((para) => <p class="lede">{para}</p>)}
+          <div lang="en" style="margin-top:3rem">
+            <h2>{en.title}</h2>
+            {en.body.map((para, i) => <p style={i === 0 ? "margin-top:1.2rem" : undefined}>{para}</p>)}
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
