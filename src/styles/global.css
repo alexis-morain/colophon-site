@@ -386,6 +386,22 @@ aside p {
   max-width: 30rem;
 }
 
+/* ---- screenshots ------------------------------------------------------- */
+
+/* The app's window as it is, white table and all: no frame drawn around it,
+   the screenshot keeps its own rounded corners. */
+.shot {
+  margin: clamp(2rem, 5vw, 3.2rem) 0 0;
+}
+
+.shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--rule-faint);
+  border-radius: 10px;
+}
+
 /* ---- the run ----------------------------------------------------------- */
 
 .run-line {

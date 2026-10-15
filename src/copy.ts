@@ -14,8 +14,8 @@ export const config = {
   releases: "https://github.com/alexis-morain/colophon/releases/latest",
   /** Flip to true the day the first release carries binaries. It swaps the
    *  download block from "build it yourself" to real platform buttons. */
-  released: false,
-  version: "0.9.0",
+  released: true,
+  version: "1.0.0",
 };
 
 export interface Copy {
@@ -24,7 +24,8 @@ export interface Copy {
   altHref: string;
   altLabel: string;
   altTitle: string;
-  meta: { title: string; description: string };
+  /** imageAlt describes the social preview, shared by both languages' pages */
+  meta: { title: string; description: string; imageAlt: string };
   nav: { work: string; promise: string; print: string; faq: string };
   hero: {
     /** html: one <em> allowed, it sets the accent colour */
@@ -42,9 +43,12 @@ export interface Copy {
     tail: string;
     pipeline: string[];
     caption: string;
+    /** alt text of the summary screenshot */
+    shot: string;
   };
   promise: { kicker: string; title: string; lede: string; items: string[]; tail: string };
-  sort: { kicker: string; title: string; body: string[]; figure: string };
+  /** shot: alt text of the Sort view screenshot */
+  sort: { kicker: string; title: string; body: string[]; figure: string; shot: string };
   print: { kicker: string; title: string; body: string[]; profiles: string; code: string };
   privacy: { kicker: string; title: string; body: string[] };
   download: {
@@ -79,6 +83,7 @@ export const en: Copy = {
     title: "Colophon, a photo book from a folder of photos",
     description:
       "Free desktop software that turns a folder of photographs into a print-ready album in under a minute. Offline, no account, and you print it wherever you like.",
+    imageAlt: "A composed spread on a dark ground, next to the name Colophon and the line: turn a folder of photos into a print-ready album in under a minute.",
   },
   nav: { work: "How it works", promise: "What it guarantees", print: "Printing", faq: "Questions" },
   hero: {
@@ -96,6 +101,7 @@ export const en: Copy = {
       "on <b>50 spreads</b> across <b>8 chapters</b>, in under a minute, with every discarded frame listed and explained.",
     pipeline: ["scan", "analyse", "curate", "compose", "export"],
     caption: "A 21 × 21 cm album, composed from a holiday folder, untouched by hand.",
+    shot: "The summary Colophon shows after composing: 572 photos read, 98 in the album, 50 spreads in 8 chapters, the discards counted by reason, and three versions of the book to choose from.",
   },
   promise: {
     kicker: "What it guarantees",
@@ -122,6 +128,7 @@ export const en: Copy = {
       "This is the part nobody else shows you, and it is the part that makes automatic curation something you can trust rather than something you have to check.",
     ],
     figure: "A spread is drawn at its trimmed size. The bleed sits behind the cut, where the guillotine will take it.",
+    shot: "The Sort view: discarded photos grouped by reason, near identical, panoramas too wide for a page, resolution too low, with one selected and the photo it lost to shown beside it.",
   },
   print: {
     kicker: "Printing",
@@ -132,7 +139,7 @@ export const en: Copy = {
       "Nothing ever fails silently, least of all on the last screen of the journey.",
     ],
     profiles:
-      "Four printer profiles ship today, and they disagree on almost every field: bleed, one file or two, colour space, who calculates the spine. That is exactly why a profile is data, and never a rule buried in the code.",
+      "In the app, Send prepares a folder for Cloudprinter, or writes one PDF without constraints for any other printer. The command line carries four profiles, and they disagree on almost every field: bleed, one file or two, colour space, who calculates the spine. That is exactly why a profile is data, and never a rule buried in the code.",
     code: "colophon --prevol --profil cloudprinter -o my-album",
   },
   privacy: {
@@ -157,7 +164,7 @@ export const en: Copy = {
       },
     ],
     releasedLede:
-      "Download, open, point it at a folder. No account. The app is not signed by Apple, so macOS refuses the first opening: right-click it and choose Open, as the README shows.",
+      "Download, open, point it at a folder. No account. The macOS app is signed and notarized by Apple, so it opens like any other. The Windows installer is not signed yet: SmartScreen asks once, as the README shows.",
     mac: "Download for macOS",
     win: "Download for Windows",
     linux: "Linux should build from source, but nobody has checked the app there yet.",
@@ -225,6 +232,7 @@ export const fr: Copy = {
     title: "Colophon, un album photo depuis un dossier de photos",
     description:
       "Logiciel libre qui transforme un dossier de photos en album prêt à imprimer en moins d’une minute. Hors ligne, sans compte, et vous imprimez où vous voulez.",
+    imageAlt: "Une planche composée sur fond sombre, à côté du nom Colophon et de la phrase : transformer un dossier de photos en album prêt à imprimer en moins d’une minute.",
   },
   nav: { work: "Comment ça marche", promise: "Ce qui est garanti", print: "Impression", faq: "Questions" },
   hero: {
@@ -242,6 +250,7 @@ export const fr: Copy = {
       "sur <b>50 planches</b> et <b>8 chapitres</b>, en moins d’une minute, chaque photo écartée étant listée et expliquée.",
     pipeline: ["lecture", "analyse", "curation", "composition", "export"],
     caption: "Un album 21 × 21 cm, composé depuis un dossier de vacances, sans une retouche à la main.",
+    shot: "Le bilan que Colophon affiche après la composition, ici dans l’interface anglaise : 572 photos lues, 98 dans l’album, 50 planches en 8 chapitres, les photos écartées comptées par raison, et trois versions du livre au choix.",
   },
   promise: {
     kicker: "Ce qui est garanti",
@@ -268,6 +277,7 @@ export const fr: Copy = {
       "C’est la partie que personne d’autre ne montre, et c’est elle qui fait la différence entre une curation automatique à laquelle on se fie et une curation qu’il faut vérifier.",
     ],
     figure: "Une planche s’affiche à sa taille rognée. Le fond perdu reste derrière la coupe, là où le massicot le prendra.",
+    shot: "La vue Tri, ici dans l’interface anglaise : les photos écartées groupées par raison (quasi identiques, panoramas trop larges pour une page, définition trop faible), l’une sélectionnée, et la photo qui l’a emporté montrée à côté.",
   },
   print: {
     kicker: "Impression",
@@ -278,7 +288,7 @@ export const fr: Copy = {
       "Rien n’échoue jamais en silence, surtout pas au dernier écran du parcours.",
     ],
     profiles:
-      "Quatre profils d’imprimeur sont livrés, et ils divergent sur presque chaque champ : fond perdu, un fichier ou deux, espace colorimétrique, qui calcule le dos. C’est exactement pour ça qu’un profil est une donnée, et jamais une règle enfouie dans le code.",
+      "Dans l’app, Envoi prépare un dossier pour Cloudprinter, ou écrit un seul PDF sans contrainte pour tout autre imprimeur. La ligne de commande porte quatre profils, et ils divergent sur presque chaque champ : fond perdu, un fichier ou deux, espace colorimétrique, qui calcule le dos. C’est exactement pour ça qu’un profil est une donnée, et jamais une règle enfouie dans le code.",
     code: "colophon --prevol --profil cloudprinter -o mon-album",
   },
   privacy: {
@@ -303,7 +313,7 @@ export const fr: Copy = {
       },
     ],
     releasedLede:
-      "Téléchargez, ouvrez, désignez un dossier. Aucun compte. L’app n’est pas signée par Apple, donc macOS refuse la première ouverture : clic droit, puis Ouvrir, comme le montre le README.",
+      "Téléchargez, ouvrez, désignez un dossier. Aucun compte. L’app macOS est signée et notarisée par Apple, elle s’ouvre comme n’importe quelle autre. L’installeur Windows n’est pas encore signé : SmartScreen pose la question une fois, comme le montre le README.",
     mac: "Télécharger pour macOS",
     win: "Télécharger pour Windows",
     linux: "Linux devrait compiler depuis les sources, mais personne n’y a encore vérifié l’app.",
