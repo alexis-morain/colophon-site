@@ -101,7 +101,7 @@ export const en: Copy = {
       "on <b>50 spreads</b> across <b>8 chapters</b>, in under a minute, with every discarded frame listed and explained.",
     pipeline: ["scan", "analyse", "curate", "compose", "export"],
     caption: "A 21 × 21 cm album, composed from a holiday folder, untouched by hand.",
-    shot: "The summary Colophon shows after composing: 572 photos read, 98 in the album, 50 spreads in 8 chapters, the discards counted by reason, and three versions of the book to choose from.",
+    shot: "The summary Colophon shows after composing: 229 photos read, 63 in the album, 45 spreads in 8 chapters, the discards counted by reason, and three versions of the book to choose from.",
   },
   promise: {
     kicker: "What it guarantees",
@@ -128,7 +128,7 @@ export const en: Copy = {
       "This is the part nobody else shows you, and it is the part that makes automatic curation something you can trust rather than something you have to check.",
     ],
     figure: "A spread is drawn at its trimmed size. The bleed sits behind the cut, where the guillotine will take it.",
-    shot: "The Sort view: discarded photos grouped by reason, near identical, panoramas too wide for a page, resolution too low, with one selected and the photo it lost to shown beside it.",
+    shot: "The Sort view: 166 discarded photos with their reason, starting with the good photos that did not fit the book, and the button to review them one by one.",
   },
   print: {
     kicker: "Printing",
@@ -250,7 +250,7 @@ export const fr: Copy = {
       "sur <b>50 planches</b> et <b>8 chapitres</b>, en moins d’une minute, chaque photo écartée étant listée et expliquée.",
     pipeline: ["lecture", "analyse", "curation", "composition", "export"],
     caption: "Un album 21 × 21 cm, composé depuis un dossier de vacances, sans une retouche à la main.",
-    shot: "Le bilan que Colophon affiche après la composition, ici dans l’interface anglaise : 572 photos lues, 98 dans l’album, 50 planches en 8 chapitres, les photos écartées comptées par raison, et trois versions du livre au choix.",
+    shot: "Le bilan que Colophon affiche après la composition, ici dans l’interface anglaise : 229 photos lues, 63 dans l’album, 45 planches en 8 chapitres, les photos écartées comptées par raison, et trois versions du livre au choix.",
   },
   promise: {
     kicker: "Ce qui est garanti",
@@ -277,7 +277,7 @@ export const fr: Copy = {
       "C’est la partie que personne d’autre ne montre, et c’est elle qui fait la différence entre une curation automatique à laquelle on se fie et une curation qu’il faut vérifier.",
     ],
     figure: "Une planche s’affiche à sa taille rognée. Le fond perdu reste derrière la coupe, là où le massicot le prendra.",
-    shot: "La vue Tri, ici dans l’interface anglaise : les photos écartées groupées par raison (quasi identiques, panoramas trop larges pour une page, définition trop faible), l’une sélectionnée, et la photo qui l’a emporté montrée à côté.",
+    shot: "La vue Tri, ici dans l’interface anglaise : 166 photos écartées avec leur raison, à commencer par les bonnes photos qui n’ont pas trouvé de place dans le livre, et le bouton pour les revoir une à une.",
   },
   print: {
     kicker: "Impression",
