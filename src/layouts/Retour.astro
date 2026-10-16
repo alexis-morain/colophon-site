@@ -5,6 +5,10 @@ import "../styles/global.css";
 // relay does not know the app's language, so each page says it twice, French
 // first. They are linked from nowhere and stay out of the index for good: they
 // only make sense to someone who just left Stripe's page.
+//
+// The privacy page uses the same shape, both languages on one page, because
+// the app links to one address whatever its language. It is public, so it
+// asks to be indexed (`indexee`).
 
 interface Bloc {
   title: string;
@@ -15,9 +19,10 @@ interface Props {
   title: string;
   fr: Bloc;
   en: Bloc;
+  indexee?: boolean;
 }
 
-const { title, fr, en } = Astro.props;
+const { title, fr, en, indexee = false } = Astro.props;
 const root = import.meta.env.BASE_URL.replace(/\/$/, "");
 ---
 
@@ -28,7 +33,7 @@ const root = import.meta.env.BASE_URL.replace(/\/$/, "");
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <link rel="icon" href={`${root}/favicon.png`} type="image/png" sizes="32x32" />
-    <meta name="robots" content="noindex, nofollow" />
+    {!indexee && <meta name="robots" content="noindex, nofollow" />}
   </head>
 
   <body>
