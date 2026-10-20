@@ -1,0 +1,16 @@
+// The site, served at booklibre.app by a Worker that holds nothing but the
+// static build: no script, so every request is an asset request, free and
+// outside the daily request budget the relay lives on.
+{
+  "name": "booklibre-site",
+  "account_id": "c1ff7348bd271fe738eea4467e6d4d88",
+  "compatibility_date": "2026-10-19",
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "none",
+    "html_handling": "force-trailing-slash"
+  },
+  "workers_dev": false,
+  "preview_urls": false,
+  "routes": [{ "pattern": "booklibre.app", "custom_domain": true }]
+}

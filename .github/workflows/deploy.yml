@@ -21,7 +21,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: withastro/action@v4
+      # The site itself lives at booklibre.app (`npm run deploy`). Pages only
+      # keeps the old address alive: one redirect page per old path.
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: pages-redirects
 
   deploy:
     needs: build

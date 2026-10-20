@@ -80,7 +80,7 @@ export const en: Copy = {
   altLabel: "Français",
   altTitle: "Lire cette page en français",
   meta: {
-    title: "Colophon, a photo book from a folder of photos",
+    title: "Booklibre, a photo book from a folder of photos",
     description:
       "Free desktop software that turns a folder of photographs into a print-ready album in under a minute. Offline, no account, and you print it wherever you like.",
     imageAlt: "A composed spread on a dark ground, next to the name Colophon and the line: turn a folder of photos into a print-ready album in under a minute.",
@@ -88,8 +88,8 @@ export const en: Copy = {
   nav: { work: "How it works", promise: "What it guarantees", print: "Printing", faq: "Questions" },
   hero: {
     title: "A folder of photographs goes in.<br />A book you would <em>show someone</em> comes out.",
-    lede: "Colophon reads the folder, drops what would weaken the album, lays out every spread, and hands you a draft you can argue with. It runs on your machine, it has no account, and the finished PDF goes to whichever print shop you like.",
-    cta: "Get Colophon",
+    lede: "Booklibre reads the folder, drops what would weaken the album, lays out every spread, and hands you a draft you can argue with. It runs on your machine, it has no account, and the finished PDF goes to whichever print shop you like.",
+    cta: "Get Booklibre",
     ctaAlt: "Read the source",
     note: "Free and open source, GPL-3.0. For macOS and Windows.",
   },
@@ -101,7 +101,7 @@ export const en: Copy = {
       "on <b>50 spreads</b> across <b>8 chapters</b>, in under a minute, with every discarded frame listed and explained.",
     pipeline: ["scan", "analyse", "curate", "compose", "export"],
     caption: "A 21 × 21 cm album, composed from a holiday folder, untouched by hand.",
-    shot: "The summary Colophon shows after composing: 229 photos read, 63 in the album, 45 spreads in 8 chapters, the discards counted by reason, and three versions of the book to choose from.",
+    shot: "The summary Booklibre shows after composing: 229 photos read, 63 in the album, 45 spreads in 8 chapters, the discards counted by reason, and three versions of the book to choose from.",
   },
   promise: {
     kicker: "What it guarantees",
@@ -146,7 +146,7 @@ export const en: Copy = {
     kicker: "What it does not do",
     title: "No account, no cloud, no telemetry, ever.",
     body: [
-      "There is no server to send your photographs to. Pull the network cable and everything still works, the export included. The one call Colophon makes is a question at launch, to GitHub, about whether a newer version exists; it carries nothing of your photographs and nothing of your album, and Preferences turns it off.",
+      "There is no server to send your photographs to. Pull the network cable and everything still works, the export included. The one call Booklibre makes is a question at launch, to GitHub, about whether a newer version exists; it carries nothing of your photographs and nothing of your album, and Preferences turns it off.",
       "The album is a folder on your disk with a readable JSON file in it, which you can repair in a text editor. Your original photographs are read and never modified.",
       "Nothing here expires, reports on you, or holds a project hostage behind a login. The absence is the product.",
     ],
@@ -164,7 +164,7 @@ export const en: Copy = {
       },
     ],
     releasedLede:
-      "Download, open, point it at a folder. No account. The macOS app is signed and notarized by Apple, so it opens like any other. The Windows installer is not signed yet: SmartScreen asks once, as the README shows.",
+      "Download, open, point it at a folder. No account. The macOS app is signed and notarized by Apple, so it opens like any other. The Windows installer is not signed yet: SmartScreen asks once, as the README shows. Version 1.0.1 still carries the project’s former name, Colophon: the next version takes the new one.",
     mac: "Download for macOS",
     win: "Download for Windows",
     linux: "Linux should build from source, but nobody has checked the app there yet.",
@@ -181,7 +181,7 @@ export const en: Copy = {
       },
       {
         q: "Do my photographs go into a cloud?",
-        a: "No. There is no server. Colophon works with the network switched off, and it will keep working the day this project stops being maintained.",
+        a: "No. There is no server. Booklibre works with the network switched off, and it will keep working the day this project stops being maintained.",
       },
       {
         q: "Is this AI?",
@@ -210,7 +210,7 @@ export const en: Copy = {
     ],
   },
   foot: {
-    title: "Colophon",
+    title: "Booklibre",
     body:
       "Set in Charter and Avenir Next. Built with Astro, no tracker, no cookie, no font served from someone else’s server. Inside the app, the album’s default typeface is Source Sans 3, and the one the album uses is embedded in every PDF it exports.",
     links: [
@@ -229,7 +229,7 @@ export const fr: Copy = {
   altLabel: "English",
   altTitle: "Read this page in English",
   meta: {
-    title: "Colophon, un album photo depuis un dossier de photos",
+    title: "Booklibre, un album photo depuis un dossier de photos",
     description:
       "Logiciel libre qui transforme un dossier de photos en album prêt à imprimer en moins d’une minute. Hors ligne, sans compte, et vous imprimez où vous voulez.",
     imageAlt: "Une planche composée sur fond sombre, à côté du nom Colophon et de la phrase : transformer un dossier de photos en album prêt à imprimer en moins d’une minute.",
@@ -237,8 +237,8 @@ export const fr: Copy = {
   nav: { work: "Comment ça marche", promise: "Ce qui est garanti", print: "Impression", faq: "Questions" },
   hero: {
     title: "Un dossier de photos entre.<br />Un livre <em>qu’on montre</em> en sort.",
-    lede: "Colophon lit le dossier, écarte ce qui affaiblirait l’album, compose toutes les planches, et vous rend un brouillon avec lequel vous pouvez discuter. Tout tourne sur votre machine, sans compte, et le PDF part chez l’imprimeur de votre choix.",
-    cta: "Obtenir Colophon",
+    lede: "Booklibre lit le dossier, écarte ce qui affaiblirait l’album, compose toutes les planches, et vous rend un brouillon avec lequel vous pouvez discuter. Tout tourne sur votre machine, sans compte, et le PDF part chez l’imprimeur de votre choix.",
+    cta: "Obtenir Booklibre",
     ctaAlt: "Lire le code",
     note: "Libre et gratuit, GPL-3.0. Pour macOS et Windows.",
   },
@@ -250,7 +250,7 @@ export const fr: Copy = {
       "sur <b>50 planches</b> et <b>8 chapitres</b>, en moins d’une minute, chaque photo écartée étant listée et expliquée.",
     pipeline: ["lecture", "analyse", "curation", "composition", "export"],
     caption: "Un album 21 × 21 cm, composé depuis un dossier de vacances, sans une retouche à la main.",
-    shot: "Le bilan que Colophon affiche après la composition, ici dans l’interface anglaise : 229 photos lues, 63 dans l’album, 45 planches en 8 chapitres, les photos écartées comptées par raison, et trois versions du livre au choix.",
+    shot: "Le bilan que Booklibre affiche après la composition, ici dans l’interface anglaise : 229 photos lues, 63 dans l’album, 45 planches en 8 chapitres, les photos écartées comptées par raison, et trois versions du livre au choix.",
   },
   promise: {
     kicker: "Ce qui est garanti",
@@ -295,7 +295,7 @@ export const fr: Copy = {
     kicker: "Ce qu’il ne fait pas",
     title: "Aucun compte, aucun cloud, aucune télémétrie, jamais.",
     body: [
-      "Il n’y a pas de serveur où envoyer vos photos. Débranchez le réseau, tout continue de fonctionner, export compris. Le seul appel que Colophon passe est une question au lancement, à GitHub, pour savoir s’il existe une version plus récente ; elle n’emporte rien de vos photos et rien de votre album, et les Préférences la coupent.",
+      "Il n’y a pas de serveur où envoyer vos photos. Débranchez le réseau, tout continue de fonctionner, export compris. Le seul appel que Booklibre passe est une question au lancement, à GitHub, pour savoir s’il existe une version plus récente ; elle n’emporte rien de vos photos et rien de votre album, et les Préférences la coupent.",
       "L’album est un dossier sur votre disque avec un JSON lisible dedans, réparable dans un éditeur de texte. Vos photos d’origine sont lues et jamais modifiées.",
       "Rien ici n’expire, ne vous surveille, ni ne retient un projet derrière un identifiant. L’absence est le produit.",
     ],
@@ -313,7 +313,7 @@ export const fr: Copy = {
       },
     ],
     releasedLede:
-      "Téléchargez, ouvrez, désignez un dossier. Aucun compte. L’app macOS est signée et notarisée par Apple, elle s’ouvre comme n’importe quelle autre. L’installeur Windows n’est pas encore signé : SmartScreen pose la question une fois, comme le montre le README.",
+      "Téléchargez, ouvrez, désignez un dossier. Aucun compte. L’app macOS est signée et notarisée par Apple, elle s’ouvre comme n’importe quelle autre. L’installeur Windows n’est pas encore signé : SmartScreen pose la question une fois, comme le montre le README. La version 1.0.1 porte encore l’ancien nom du projet, Colophon : la suivante prend le nouveau.",
     mac: "Télécharger pour macOS",
     win: "Télécharger pour Windows",
     linux: "Linux devrait compiler depuis les sources, mais personne n’y a encore vérifié l’app.",
@@ -330,7 +330,7 @@ export const fr: Copy = {
       },
       {
         q: "Mes photos partent dans un cloud ?",
-        a: "Non, il n’y a pas de serveur. Colophon fonctionne réseau coupé, et continuera de fonctionner le jour où ce projet cessera d’être maintenu.",
+        a: "Non, il n’y a pas de serveur. Booklibre fonctionne réseau coupé, et continuera de fonctionner le jour où ce projet cessera d’être maintenu.",
       },
       {
         q: "C’est de l’IA ?",
@@ -359,7 +359,7 @@ export const fr: Copy = {
     ],
   },
   foot: {
-    title: "Colophon",
+    title: "Booklibre",
     body:
       "Composé en Charter et Avenir Next. Fabriqué avec Astro, sans traqueur, sans cookie, sans police servie depuis le serveur de quelqu’un d’autre. Dans l’app, la police de l’album est par défaut Source Sans 3, et celle que l’album porte est incorporée dans chaque PDF exporté.",
     links: [

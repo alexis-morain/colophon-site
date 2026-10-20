@@ -17,9 +17,8 @@ const diagram =
     ? { trim: "Taille rognée", bleed: "fond perdu 3 mm", fold: "pli" }
     : { trim: "Trim size", bleed: "3 mm bleed", fold: "fold" };
 
-// Every internal link goes through here. On GitHub Pages the site sits under
-// /colophon-site/, on a real domain it will sit at the root: `base` is the one
-// place that knows, and hard-coded absolute paths would break on one of the two.
+// Every internal link goes through here: `base` is the one place that knows
+// where the site sits, and hard-coded absolute paths would break the day it moves.
 const root = import.meta.env.BASE_URL.replace(/\/$/, "");
 const url = (path: string) => `${root}${path}`;
 
@@ -56,7 +55,7 @@ const alt = new URL(url(copy.altHref), Astro.site).href;
 
     <div class="wrap">
       <header class="masthead">
-        <a class="mark" href={url(copy.lang === "fr" ? "/fr/" : "/")}>Colophon</a>
+        <a class="mark" href={url(copy.lang === "fr" ? "/fr/" : "/")}>Booklibre</a>
         <nav aria-label={copy.lang === "fr" ? "Sections" : "Sections"}>
           <a href="#work">{copy.nav.work}</a>
           <a href="#promise">{copy.nav.promise}</a>
@@ -176,7 +175,7 @@ const alt = new URL(url(copy.altHref), Astro.site).href;
       <section id="get">
         <div class="wrap">
           <p class="kicker">{copy.download.kicker}</p>
-          <h2>{config.released ? "Colophon " + config.version : copy.download.title}</h2>
+          <h2>{config.released ? "Booklibre " + config.version : copy.download.title}</h2>
 
           {
             config.released ? (

@@ -5,13 +5,12 @@ import { defineConfig } from "astro/config";
 // HTML and one stylesheet: anything else here would be a dependency to keep
 // alive for no gain. `site` feeds the canonical tags and the sitemap the day
 // one is needed, so set it to the real domain before the first deploy.
-// Hosted on GitHub Pages as a project site, so the pages live under a path.
-// The day a real domain points here: set `site` to it, set `base` to "/", and
-// drop a CNAME file in `public/`. Nothing else changes, because every internal
-// link is built from `import.meta.env.BASE_URL`.
+// Served at the root of booklibre.app by a Cloudflare Worker that only serves
+// static assets (`wrangler.jsonc`, `npm run deploy`). The old GitHub Pages
+// address keeps answering from `pages-redirects/`, one page per old path.
 export default defineConfig({
-  site: "https://alexis-morain.github.io",
-  base: "/colophon-site",
+  site: "https://booklibre.app",
+  base: "/",
   trailingSlash: "always",
   output: "static",
   build: { inlineStylesheets: "always" },
