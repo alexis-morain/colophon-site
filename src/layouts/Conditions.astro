@@ -1,0 +1,62 @@
+---
+import "../styles/global.css";
+
+// Les conditions de vente : un texte long, découpé en articles, en français
+// seul (la vente n'est ouverte qu'en France). Même habit que `Retour`, avec
+// un titre par article, parce qu'un acheteur cherche « rétractation » ou
+// « garantie » et doit le trouver d'un coup d'œil.
+
+interface Article {
+  titre: string;
+  corps: string[];
+}
+
+interface Props {
+  title: string;
+  h1: string;
+  chapeau: string;
+  articles: Article[];
+  en: string;
+}
+
+const { title, h1, chapeau, articles, en } = Astro.props;
+const root = import.meta.env.BASE_URL.replace(/\/$/, "");
+---
+
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <link rel="icon" href={`${root}/favicon.png`} type="image/png" sizes="32x32" />
+  </head>
+
+  <body>
+    <div class="wrap">
+      <header class="masthead">
+        <span class="mark">Booklibre</span>
+      </header>
+    </div>
+
+    <main id="main">
+      <div class="wrap">
+        <div class="hero">
+          <h1>{h1}</h1>
+          <p class="lede">{chapeau}</p>
+          {
+            articles.map((a, i) => (
+              <section style="margin-top:2.4rem">
+                <h2 id={`article-${i + 1}`}>{`${i + 1}. ${a.titre}`}</h2>
+                {a.corps.map((para, j) => (
+                  <p style={j === 0 ? "margin-top:0.8rem" : undefined}>{para}</p>
+                ))}
+              </section>
+            ))
+          }
+          <p lang="en" style="margin-top:3rem">{en}</p>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

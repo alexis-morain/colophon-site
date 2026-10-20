@@ -1,0 +1,100 @@
+---
+import Conditions from "../../layouts/Conditions.astro";
+
+// Les conditions générales de vente des albums commandés depuis Booklibre.
+// Liées depuis la page de paiement Stripe (case « J'accepte les conditions »,
+// `consent_collection.terms_of_service`) et depuis l'écran de commande de
+// l'app. Comme la page de confidentialité : une phrase que le relais ne tient
+// pas est une fausse promesse, à un acheteur cette fois. Chaque version
+// publiée s'archive dans `docs/cgv/` du dossier de gestion, datée.
+---
+
+<Conditions
+  title="Conditions de vente · Booklibre"
+  h1="Conditions générales de vente"
+  chapeau="Elles s’appliquent aux albums photo imprimés que vous commandez et payez depuis l’application Booklibre. Le logiciel et l’export PDF restent gratuits et ne sont pas concernés : vous pouvez toujours imprimer votre fichier où vous voulez."
+  articles={[
+    {
+      titre: "Le vendeur",
+      corps: [
+        "Alexis Morain, entrepreneur individuel. SIRET 878 037 886 00040. TVA intracommunautaire FR03878037886. Adresse : 2 allée Chantoiseau, 37230 Fondettes, France. Contact : orders@booklibre.app.",
+        "L’album est fabriqué et expédié par l’imprimeur Cloudprinter, pour le compte du vendeur. Le vendeur reste votre seul interlocuteur et répond de toute la commande, fabrication et livraison comprises.",
+      ],
+    },
+    {
+      titre: "Le produit",
+      corps: [
+        "Un livre photo à couverture rigide, imprimé à partir des deux fichiers PDF que l’application prépare depuis votre album : l’intérieur et la couverture. Le format, le nombre de pages et le papier sont ceux affichés à l’écran de commande.",
+        "Vous composez l’album vous-même. Le contenu (photos, textes, mise en page) est le vôtre : le vendeur ne le corrige pas et ne le relit pas. Vous garantissez avoir le droit d’imprimer ces photos et ces textes.",
+        "Les couleurs imprimées peuvent différer légèrement de celles de l’écran, surtout les aplats sombres. Ce n’est pas un défaut.",
+      ],
+    },
+    {
+      titre: "Les photos signalées trop petites",
+      corps: [
+        "Avant la commande, l’application contrôle les fichiers. Une photo dont la résolution est inférieure à 250 points par pouce à sa taille d’impression est signalée : elle risque d’imprimer floue ou pixelisée.",
+        "Pour commander malgré ce signalement, vous cochez une case qui nomme les pages concernées. Vous acceptez alors expressément et séparément que la netteté de ces pages s’écarte de ce qu’on attend d’un livre photo (article L217-5 du Code de la consommation). Ce défaut, annoncé et accepté, ne donne pas lieu à remplacement ni à remboursement. Le reste de l’album reste couvert par les garanties de l’article 9.",
+      ],
+    },
+    {
+      titre: "La commande",
+      corps: [
+        "Dans l’application : vous choisissez le pays de livraison, voyez le prix, envoyez les fichiers, puis payez sur la page sécurisée de Stripe. Rien n’est débité avant cette page. La commande est conclue quand le paiement est accepté ; vous recevez alors une confirmation par e-mail.",
+        "Vos fichiers sont transmis chiffrés et effacés au plus tard 30 jours après leur envoi.",
+      ],
+    },
+    {
+      titre: "Le prix et le paiement",
+      corps: [
+        "Le prix est affiché en euros, toutes taxes comprises, livraison incluse, au moment de la commande. C’est ce prix qui s’applique. Le prix affiché pendant la construction de l’album est une estimation.",
+        "Le paiement se fait par carte sur la page de Stripe, débité à la validation. Le vendeur ne voit ni ne conserve vos données de carte. Une facture vous est envoyée par e-mail.",
+      ],
+    },
+    {
+      titre: "La livraison",
+      corps: [
+        "La livraison n’est ouverte aujourd’hui qu’en France, à l’adresse que vous indiquez. Sauf délai annoncé à l’écran de commande, l’album vous est livré au plus tard 30 jours après la commande. Passé ce délai, vous pouvez demander l’annulation et le remboursement intégral (articles L216-1 et suivants du Code de la consommation).",
+        "Le colis voyage aux risques du vendeur jusqu’à ce que vous le receviez. Un colis abîmé : notez-le si possible auprès du transporteur, et écrivez au vendeur avec une photo.",
+      ],
+    },
+    {
+      titre: "Pas de droit de rétractation",
+      corps: [
+        "Un album photo est fabriqué selon vos spécifications et entièrement personnalisé. Le droit de rétractation de 14 jours ne s’applique donc pas (article L221-28, 3° du Code de la consommation).",
+        "Vous pouvez en revanche annuler depuis l’application tant qu’elle vous le propose, c’est-à-dire avant le départ en fabrication. Vous êtes alors remboursé intégralement.",
+      ],
+    },
+    {
+      titre: "Un défaut à la réception",
+      corps: [
+        "Une page mal imprimée, mal coupée, une reliure qui lâche, un album qui ne correspond pas aux fichiers envoyés : écrivez au vendeur avec des photos du défaut. Le vendeur fait réimprimer l’album ou vous rembourse. Prévenir vite aide à obtenir une réimpression de l’imprimeur, mais ne réduit en rien vos garanties légales.",
+      ],
+    },
+    {
+      titre: "Les garanties légales",
+      corps: [
+        "Vous disposez d’un délai de deux ans à compter de la délivrance du bien pour obtenir la mise en œuvre de la garantie légale de conformité en cas d’apparition d’un défaut de conformité. Durant ce délai, vous n’êtes tenu d’établir que l’existence du défaut de conformité et non la date de son apparition.",
+        "La garantie légale de conformité emporte le droit à la réparation ou au remplacement du bien dans un délai de trente jours suivant votre demande, sans frais ni inconvénient majeur pour vous.",
+        "Vous pouvez obtenir une réduction du prix en conservant le bien, ou mettre fin au contrat en vous faisant rembourser intégralement contre restitution du bien, si : le vendeur refuse de réparer ou de remplacer le bien ; la réparation ou le remplacement intervient après un délai de trente jours ; la réparation ou le remplacement vous occasionne un inconvénient majeur, notamment lorsque vous supportez définitivement les frais de reprise ou d’enlèvement du bien non conforme, ou les frais d’installation du bien réparé ou de remplacement ; la non-conformité persiste en dépit de la tentative de mise en conformité restée infructueuse.",
+        "Vous avez aussi droit à une réduction du prix ou à la résolution du contrat lorsque le défaut de conformité est si grave qu’il justifie que la réduction ou la résolution soit immédiate. Vous n’êtes alors pas tenu de demander la réparation ou le remplacement au préalable. Vous n’avez pas droit à la résolution de la vente si le défaut de conformité est mineur.",
+        "Toute période d’immobilisation du bien en vue de sa réparation ou de son remplacement suspend la garantie qui restait à courir jusqu’à la délivrance du bien remis en état.",
+        "Ces droits résultent des articles L217-1 à L217-32 du Code de la consommation. Le vendeur qui fait obstacle de mauvaise foi à la mise en œuvre de la garantie légale de conformité encourt une amende civile d’un montant maximal de 300 000 euros, qui peut être porté jusqu’à 10 % du chiffre d’affaires moyen annuel (article L242-18-1 du Code de la consommation).",
+        "Vous bénéficiez également de la garantie légale des vices cachés (articles 1641 à 1649 du Code civil), pendant deux ans à compter de la découverte du défaut. Elle donne droit à une réduction du prix si le bien est conservé, ou à un remboursement intégral contre restitution du bien.",
+      ],
+    },
+    {
+      titre: "Vos données",
+      corps: [
+        "Pour livrer et facturer, la commande garde votre nom, votre adresse, votre e-mail et votre téléphone, transmis à Stripe (paiement) et à Cloudprinter (fabrication et livraison). Le détail, les durées de conservation et vos droits sont sur la page Confidentialité.",
+      ],
+    },
+    {
+      titre: "Un litige",
+      corps: [
+        "Écrivez d’abord au vendeur : la plupart des problèmes se règlent par une réimpression. Si la réponse ne vous satisfait pas, vous pouvez saisir gratuitement un médiateur de la consommation. Le vendeur est en train d’en désigner un ; son nom et son adresse figureront ici avant la première vente.",
+        "Ces conditions sont soumises au droit français. Version du 20 octobre 2026.",
+      ],
+    },
+  ]}
+  en="These terms govern printed albums ordered and paid for from the Booklibre app. Ordering is open in France only, so they are written in French. The software and the PDF export stay free and are not covered."
+/>
