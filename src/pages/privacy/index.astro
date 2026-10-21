@@ -16,9 +16,11 @@ import Retour from "../../layouts/Retour.astro";
       "Vos photos et vos albums restent sur votre ordinateur. La composition et l’export PDF se font hors ligne.",
       "Depuis la photothèque, Booklibre copie les photos de l’album que vous choisissez dans un dossier de vos Images. Il n’y modifie ni n’y supprime jamais rien.",
       "La version du Mac App Store n’appelle aucun serveur.",
-      "La version téléchargée depuis GitHub demande à GitHub, au lancement, si une version plus récente existe. GitHub voit l’adresse IP et le logiciel de cette requête, rien d’autre. La question se coupe dans les Préférences.",
+      "La version téléchargée demande au lancement s’il existe une version plus récente : d’abord à booklibre.app, puis à GitHub si le site ne répond pas. La requête ne porte rien d’autre que cette question. La vérification se coupe dans les Préférences.",
+      "Sur son écran d’accueil, Booklibre demande comment vous comptez imprimer votre livre. Si vous répondez « Par Booklibre », il lit, une fois à chaque ouverture, la table de ses prix sur tarifs.booklibre.app, pour afficher le prix du livre pendant que vous le composez. La requête ne porte aucun identifiant, rien de vos photos ni de votre album, et pas même le pays choisi, qui reste sur votre ordinateur. Tant que vous n’avez pas répondu, ou si vous répondez « Moi-même », elle ne part pas. Les Préférences changent ce choix.",
+      "booklibre.app et tarifs.booklibre.app sont servis par Cloudflare, GitHub par GitHub. Chacun voit l’adresse IP et le logiciel des requêtes qui lui arrivent, et peut les garder dans ses journaux d’accès, selon sa propre politique. Booklibre n’y ajoute rien : le serveur des tarifs ne note ni adresse IP ni logiciel.",
       "« Signaler un problème » ouvre une page de GitHub dans votre navigateur, avec le rapport que vous lisez avant de l’envoyer. Rien ne part sans votre clic, et ce que vous publiez là relève des conditions de GitHub.",
-      "Questions : hello@booklibre.app. Mis à jour le 15 octobre 2026.",
+      "Questions : hello@booklibre.app. Mis à jour le 20 octobre 2026.",
     ],
   }}
   en={{
@@ -28,9 +30,11 @@ import Retour from "../../layouts/Retour.astro";
       "Your photos and albums stay on your computer. Composing and exporting the PDF happen offline.",
       "From the photo library, Booklibre copies the photos of the album you pick into a folder in your Pictures. It never changes or deletes anything there.",
       "The Mac App Store version calls no server.",
-      "The version downloaded from GitHub asks GitHub, at launch, whether a newer version exists. GitHub sees that request’s IP address and software, nothing else. The check can be turned off in Preferences.",
+      "The downloaded version asks at launch whether a newer version exists: first booklibre.app, then GitHub if the site does not answer. The request carries nothing but that question. Preferences turns the check off.",
+      "On its welcome screen, Booklibre asks how you plan to print your book. If you answer “Through Booklibre”, it reads its price table from tarifs.booklibre.app, once each time it opens, to show what the book will cost while you compose it. The request carries no identifier, nothing of your photos or your album, and not even the country you picked, which stays on your computer. Until you answer, or if you answer “Myself”, it never goes. Preferences change that choice.",
+      "booklibre.app and tarifs.booklibre.app are served by Cloudflare, GitHub by GitHub. Each sees the IP address and software of the requests it receives, and may keep them in its access logs, under its own policy. Booklibre adds nothing: the price server logs neither IP address nor software.",
       "“Report a problem” opens a GitHub page in your browser, with the report you read before sending it. Nothing leaves without your click, and what you post there falls under GitHub’s terms.",
-      "Questions: hello@booklibre.app. Last updated 15 October 2026.",
+      "Questions: hello@booklibre.app. Last updated 20 October 2026.",
     ],
   }}
 />
