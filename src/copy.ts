@@ -146,7 +146,7 @@ export const en: Copy = {
     kicker: "What it does not do",
     title: "No account, no cloud, no telemetry, ever.",
     body: [
-      "There is no server to send your photographs to. Pull the network cable and everything still works, the export included. Booklibre makes two calls at most, and neither carries anything of your photographs or your album: a question at launch, to booklibre.app then GitHub, about whether a newer version exists; and, only if you chose to have the book printed through Booklibre, a read of its price table. Preferences turns off both.",
+      "There is no server to send your photographs to. Pull the network cable and everything still works, the export included. The one call Booklibre makes is a question at launch, to booklibre.app then GitHub, about whether a newer version exists; it carries nothing of your photographs and nothing of your album, and Preferences turns it off.",
       "The album is a folder on your disk with a readable JSON file in it, which you can repair in a text editor. Your original photographs are read and never modified.",
       "Nothing here expires, reports on you, or holds a project hostage behind a login. The absence is the product.",
     ],
@@ -298,7 +298,7 @@ export const fr: Copy = {
     kicker: "Ce qu’il ne fait pas",
     title: "Aucun compte, aucun cloud, aucune télémétrie, jamais.",
     body: [
-      "Il n’y a pas de serveur où envoyer vos photos. Débranchez le réseau, tout continue de fonctionner, export compris. Booklibre passe deux appels au plus, et aucun n’emporte quoi que ce soit de vos photos ou de votre album : une question au lancement, à booklibre.app puis à GitHub, pour savoir s’il existe une version plus récente ; et, seulement si vous avez choisi de faire imprimer par Booklibre, la lecture de ses tarifs. Les Préférences coupent l’un et l’autre.",
+      "Il n’y a pas de serveur où envoyer vos photos. Débranchez le réseau, tout continue de fonctionner, export compris. Le seul appel que Booklibre passe est une question au lancement, à booklibre.app puis à GitHub, pour savoir s’il existe une version plus récente ; elle n’emporte rien de vos photos et rien de votre album, et les Préférences la coupent.",
       "L’album est un dossier sur votre disque avec un JSON lisible dedans, réparable dans un éditeur de texte. Vos photos d’origine sont lues et jamais modifiées.",
       "Rien ici n’expire, ne vous surveille, ni ne retient un projet derrière un identifiant. L’absence est le produit.",
     ],
