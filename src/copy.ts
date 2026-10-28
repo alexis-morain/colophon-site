@@ -94,7 +94,7 @@ export const en: Copy = {
     title: "Booklibre, a photo book from a folder of photos",
     description:
       "Free desktop software that turns a folder of photographs into a print-ready album in under a minute. Offline, no account, and you print it wherever you like.",
-    imageAlt: "A composed spread on a dark ground, next to the name Colophon and the line: turn a folder of photos into a print-ready album in under a minute.",
+    imageAlt: "An open spread on cream paper, a manuscript and a stone ruin from Mauritania, next to the name Booklibre and the line: a folder of photographs goes in, a book you would show someone comes out.",
   },
   nav: { work: "How it works", promise: "What it guarantees", print: "Printing", faq: "Questions" },
   hero: {
@@ -118,8 +118,8 @@ export const en: Copy = {
     tail:
       "on <b>50 spreads</b> across <b>8 chapters</b>, in under a minute, with every discarded frame listed and explained.",
     pipeline: ["scan", "analyse", "curate", "compose", "export"],
-    caption: "A 21 × 21 cm album, composed from a holiday folder, untouched by hand.",
-    shot: "The summary Booklibre shows after composing: 229 photos read, 63 in the album, 45 spreads in 8 chapters, the discards counted by reason, and three versions of the book to choose from.",
+    caption: "Mauritania 2019, a 21 × 21 cm album composed from a travel folder, untouched by hand. The interface is shown in French.",
+    shot: "Booklibre’s Book view: the chapters in a sidebar, a spread of two photographs of stone walls on cream paper, and the spread’s properties beside it, chapter, layout, moment, quality, and the selected photo with its adjustments.",
   },
   promise: {
     kicker: "What it guarantees",
@@ -146,7 +146,7 @@ export const en: Copy = {
       "This is the part nobody else shows you, and it is the part that makes automatic curation something you can trust rather than something you have to check.",
     ],
     figure: "A spread is drawn at its trimmed size. The bleed sits behind the cut, where the guillotine will take it.",
-    shot: "The Sort view: 166 discarded photos with their reason, starting with the good photos that did not fit the book, and the button to review them one by one.",
+    shot: "The Sort view, in French: 209 photos out of the album, each with its reason, starting with the good photos that did not fit the book, and the button to review them one by one.",
     reasonsHead: ["Reason", "Examples"],
     reasons: [
       "Good photos, the book is full",
@@ -268,7 +268,7 @@ export const fr: Copy = {
     title: "Booklibre, un album photo depuis un dossier de photos",
     description:
       "Logiciel libre qui transforme un dossier de photos en album prêt à imprimer en moins d’une minute. Hors ligne, sans compte, et vous imprimez où vous voulez.",
-    imageAlt: "Une planche composée sur fond sombre, à côté du nom Colophon et de la phrase : transformer un dossier de photos en album prêt à imprimer en moins d’une minute.",
+    imageAlt: "Une planche ouverte sur papier crème, un manuscrit et une ruine de pierre de Mauritanie, à côté du nom Booklibre et de la phrase, en anglais : un dossier de photos entre, un livre qu’on montre en sort.",
   },
   nav: { work: "Comment ça marche", promise: "Ce qui est garanti", print: "Impression", faq: "Questions" },
   hero: {
@@ -292,8 +292,8 @@ export const fr: Copy = {
     tail:
       "sur <b>50 planches</b> et <b>8 chapitres</b>, en moins d’une minute, chaque photo écartée étant listée et expliquée.",
     pipeline: ["lecture", "analyse", "curation", "composition", "export"],
-    caption: "Un album 21 × 21 cm, composé depuis un dossier de vacances, sans une retouche à la main.",
-    shot: "Le bilan que Booklibre affiche après la composition, ici dans l’interface anglaise : 229 photos lues, 63 dans l’album, 45 planches en 8 chapitres, les photos écartées comptées par raison, et trois versions du livre au choix.",
+    caption: "Mauritanie 2019, un album 21 × 21 cm composé depuis un dossier de voyage, sans une retouche à la main.",
+    shot: "La vue Livre de Booklibre : les chapitres dans une barre latérale, une planche de deux photos de murs de pierre sur papier crème, et à côté ses propriétés, chapitre, disposition, moment, qualité, puis la photo choisie et ses réglages.",
   },
   promise: {
     kicker: "Ce qui est garanti",
@@ -320,7 +320,7 @@ export const fr: Copy = {
       "C’est la partie que personne d’autre ne montre, et c’est elle qui fait la différence entre une curation automatique à laquelle on se fie et une curation qu’il faut vérifier.",
     ],
     figure: "Une planche s’affiche à sa taille rognée. Le fond perdu reste derrière la coupe, là où le massicot le prendra.",
-    shot: "La vue Tri, ici dans l’interface anglaise : 166 photos écartées avec leur raison, à commencer par les bonnes photos qui n’ont pas trouvé de place dans le livre, et le bouton pour les revoir une à une.",
+    shot: "La vue Tri : 209 photos hors de l’album, chacune avec sa raison, à commencer par les bonnes photos qui n’ont pas trouvé de place dans le livre, et le bouton pour les revoir une à une.",
     reasonsHead: ["Raison", "Exemples"],
     reasons: [
       "Bonnes photos, album plein",
