@@ -9,13 +9,13 @@
  */
 
 export const config = {
-  repo: "https://github.com/alexis-morain/colophon",
-  discussions: "https://github.com/alexis-morain/colophon/discussions",
-  releases: "https://github.com/alexis-morain/colophon/releases/latest",
+  repo: "https://github.com/alexis-morain/booklibre",
+  discussions: "https://github.com/alexis-morain/booklibre/discussions",
+  releases: "https://github.com/alexis-morain/booklibre/releases/latest",
   /** Flip to true the day the first release carries binaries. It swaps the
    *  download block from "build it yourself" to real platform buttons. */
   released: true,
-  version: "1.0.1",
+  version: "1.1.0",
 };
 
 export interface Copy {
@@ -159,12 +159,12 @@ export const en: Copy = {
     unreleasedSteps: [
       { code: "cargo build --release", note: "Builds the engine and the command line." },
       {
-        code: "./target/release/colophon ~/Pictures/holidays -o album --format carre-21",
+        code: "./target/release/booklibre ~/Pictures/holidays -o album --format carre-21",
         note: "Composes the album, then writes album.json and a preview PDF next to it.",
       },
     ],
     releasedLede:
-      "Download, open, point it at a folder. No account. The macOS app is signed and notarized by Apple, so it opens like any other. The Windows installer is not signed yet: SmartScreen asks once, as the README shows. Version 1.0.1 still carries the project’s former name, Colophon: the next version takes the new one.",
+      "Download, open, point it at a folder. No account. The macOS app is signed and notarized by Apple, so it opens like any other. The Windows installer is not signed yet: SmartScreen asks once, as the README shows.",
     mac: "Download for macOS",
     win: "Download for Windows",
     linux: "Linux should build from source, but nobody has checked the app there yet.",
@@ -311,12 +311,12 @@ export const fr: Copy = {
     unreleasedSteps: [
       { code: "cargo build --release", note: "Compile le moteur et la ligne de commande." },
       {
-        code: "./target/release/colophon ~/Pictures/vacances -o album --format carre-21",
+        code: "./target/release/booklibre ~/Pictures/vacances -o album --format carre-21",
         note: "Compose l’album, puis écrit album.json et un PDF d’aperçu à côté.",
       },
     ],
     releasedLede:
-      "Téléchargez, ouvrez, désignez un dossier. Aucun compte. L’app macOS est signée et notarisée par Apple, elle s’ouvre comme n’importe quelle autre. L’installeur Windows n’est pas encore signé : SmartScreen pose la question une fois, comme le montre le README. La version 1.0.1 porte encore l’ancien nom du projet, Colophon : la suivante prend le nouveau.",
+      "Téléchargez, ouvrez, désignez un dossier. Aucun compte. L’app macOS est signée et notarisée par Apple, elle s’ouvre comme n’importe quelle autre. L’installeur Windows n’est pas encore signé : SmartScreen pose la question une fois, comme le montre le README.",
     mac: "Télécharger pour macOS",
     win: "Télécharger pour Windows",
     linux: "Linux devrait compiler depuis les sources, mais personne n’y a encore vérifié l’app.",
