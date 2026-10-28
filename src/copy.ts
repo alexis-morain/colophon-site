@@ -28,12 +28,14 @@ export interface Copy {
   meta: { title: string; description: string; imageAlt: string };
   nav: { work: string; promise: string; print: string; faq: string };
   hero: {
-    /** html: one <em> allowed, it sets the accent colour */
+    /** html: one <em> allowed, it sets the second sentence in muted ink */
     title: string;
     lede: string;
     cta: string;
     ctaAlt: string;
     note: string;
+    /** the property list beside the title, like a Notion page's properties */
+    facts: { label: string; value: string; tag?: boolean }[];
   };
   run: {
     kicker: string;
@@ -48,8 +50,17 @@ export interface Copy {
   };
   promise: { kicker: string; title: string; lede: string; items: string[]; tail: string };
   /** shot: alt text of the Sort view screenshot */
-  sort: { kicker: string; title: string; body: string[]; figure: string; shot: string };
-  print: { kicker: string; title: string; body: string[]; profiles: string; code: string };
+  /** reasons: one row per discard reason, in the order the Sort view shows them */
+  sort: { kicker: string; title: string; body: string[]; figure: string; shot: string; reasons: string[]; reasonsHead: [string, string] };
+  /** checks: a preflight read-out, tone "qual" warns, "pret" passed */
+  print: {
+    kicker: string;
+    title: string;
+    body: string[];
+    profiles: string;
+    code: string;
+    checks: { label: string; value: string; tone: "qual" | "pret" }[];
+  };
   privacy: { kicker: string; title: string; body: string[] };
   download: {
     kicker: string;
@@ -87,11 +98,18 @@ export const en: Copy = {
   },
   nav: { work: "How it works", promise: "What it guarantees", print: "Printing", faq: "Questions" },
   hero: {
-    title: "A folder of photographs goes in.<br />A book you would <em>show someone</em> comes out.",
+    title: "A folder of photographs goes in. <em>A book you would show someone comes out.</em>",
     lede: "Booklibre reads the folder, drops what would weaken the album, lays out every spread, and hands you a draft you can argue with. It runs on your machine, it has no account, and the finished PDF goes to whichever print shop you like.",
     cta: "Get Booklibre",
     ctaAlt: "Read the source",
     note: "Free and open source, GPL-3.0. For macOS and Windows.",
+    facts: [
+      { label: "Price", value: "Free, export included" },
+      { label: "Account", value: "None" },
+      { label: "Network", value: "Not needed" },
+      { label: "Licence", value: "GPL-3.0", tag: true },
+      { label: "Runs on", value: "macOS, Windows" },
+    ],
   },
   run: {
     kicker: "One run",
@@ -129,6 +147,14 @@ export const en: Copy = {
     ],
     figure: "A spread is drawn at its trimmed size. The bleed sits behind the cut, where the guillotine will take it.",
     shot: "The Sort view: 166 discarded photos with their reason, starting with the good photos that did not fit the book, and the button to review them one by one.",
+    reasonsHead: ["Reason", "Examples"],
+    reasons: [
+      "Good photos, the book is full",
+      "Burst or same scene",
+      "Same moment, almost the same photo",
+      "Panorama too wide for the page",
+      "Resolution too low for this size",
+    ],
   },
   print: {
     kicker: "Printing",
@@ -140,7 +166,14 @@ export const en: Copy = {
     ],
     profiles:
       "In the app, Send prepares a folder for Cloudprinter, or writes one PDF without constraints for any other printer. The command line carries four profiles, and they disagree on almost every field: bleed, one file or two, colour space, who calculates the spine. That is exactly why a profile is data, and never a rule buried in the code.",
-    code: "colophon --prevol --profil cloudprinter -o my-album",
+    code: "booklibre --prevol --profil cloudprinter -o my-album",
+    checks: [
+      { label: "Spread 12", value: "1 photo at 214 ppi", tone: "qual" },
+      { label: "Spread 31", value: "face 2 % from the edge", tone: "qual" },
+      { label: "Bleed", value: "3 mm on all four edges", tone: "pret" },
+      { label: "Fonts", value: "embedded", tone: "pret" },
+      { label: "Pages", value: "96, a multiple of 4", tone: "pret" },
+    ],
   },
   privacy: {
     kicker: "What it does not do",
@@ -212,7 +245,7 @@ export const en: Copy = {
   foot: {
     title: "Booklibre",
     body:
-      "Set in Charter and Avenir Next. Built with Astro, no tracker, no cookie, no font served from someone else’s server. Inside the app, the album’s default typeface is Source Sans 3, and the one the album uses is embedded in every PDF it exports.",
+      "Set in your system’s own typeface. Built with Astro, no tracker, no cookie, no font served from someone else’s server. Inside the app, the album’s default typeface is Source Sans 3, and the one the album uses is embedded in every PDF it exports.",
     links: [
       { label: "Source code", href: config.repo },
       { label: "Report a problem", href: `${config.repo}/issues/new/choose` },
@@ -239,11 +272,18 @@ export const fr: Copy = {
   },
   nav: { work: "Comment ça marche", promise: "Ce qui est garanti", print: "Impression", faq: "Questions" },
   hero: {
-    title: "Un dossier de photos entre.<br />Un livre <em>qu’on montre</em> en sort.",
+    title: "Un dossier de photos entre. <em>Un livre qu’on montre en sort.</em>",
     lede: "Booklibre lit le dossier, écarte ce qui affaiblirait l’album, compose toutes les planches, et vous rend un brouillon avec lequel vous pouvez discuter. Tout tourne sur votre machine, sans compte, et le PDF part chez l’imprimeur de votre choix.",
     cta: "Obtenir Booklibre",
     ctaAlt: "Lire le code",
     note: "Libre et gratuit, GPL-3.0. Pour macOS et Windows.",
+    facts: [
+      { label: "Prix", value: "Gratuit, export compris" },
+      { label: "Compte", value: "Aucun" },
+      { label: "Réseau", value: "Inutile" },
+      { label: "Licence", value: "GPL-3.0", tag: true },
+      { label: "Systèmes", value: "macOS, Windows" },
+    ],
   },
   run: {
     kicker: "Une composition",
@@ -281,6 +321,14 @@ export const fr: Copy = {
     ],
     figure: "Une planche s’affiche à sa taille rognée. Le fond perdu reste derrière la coupe, là où le massicot le prendra.",
     shot: "La vue Tri, ici dans l’interface anglaise : 166 photos écartées avec leur raison, à commencer par les bonnes photos qui n’ont pas trouvé de place dans le livre, et le bouton pour les revoir une à une.",
+    reasonsHead: ["Raison", "Exemples"],
+    reasons: [
+      "Bonnes photos, album plein",
+      "Rafale, même scène",
+      "Même moment, presque la même photo",
+      "Panorama trop large pour la page",
+      "Définition trop faible pour ce format",
+    ],
   },
   print: {
     kicker: "Impression",
@@ -292,7 +340,14 @@ export const fr: Copy = {
     ],
     profiles:
       "Dans l’app, Envoi prépare un dossier pour Cloudprinter, ou écrit un seul PDF sans contrainte pour tout autre imprimeur. La ligne de commande porte quatre profils, et ils divergent sur presque chaque champ : fond perdu, un fichier ou deux, espace colorimétrique, qui calcule le dos. C’est exactement pour ça qu’un profil est une donnée, et jamais une règle enfouie dans le code.",
-    code: "colophon --prevol --profil cloudprinter -o mon-album",
+    code: "booklibre --prevol --profil cloudprinter -o mon-album",
+    checks: [
+      { label: "Planche 12", value: "1 photo à 214 ppi", tone: "qual" },
+      { label: "Planche 31", value: "visage à 2 % du bord", tone: "qual" },
+      { label: "Fond perdu", value: "3 mm sur les quatre bords", tone: "pret" },
+      { label: "Polices", value: "incorporées", tone: "pret" },
+      { label: "Pages", value: "96, un multiple de 4", tone: "pret" },
+    ],
   },
   privacy: {
     kicker: "Ce qu’il ne fait pas",
@@ -364,7 +419,7 @@ export const fr: Copy = {
   foot: {
     title: "Booklibre",
     body:
-      "Composé en Charter et Avenir Next. Fabriqué avec Astro, sans traqueur, sans cookie, sans police servie depuis le serveur de quelqu’un d’autre. Dans l’app, la police de l’album est par défaut Source Sans 3, et celle que l’album porte est incorporée dans chaque PDF exporté.",
+      "Composé dans la police de votre système. Fabriqué avec Astro, sans traqueur, sans cookie, sans police servie depuis le serveur de quelqu’un d’autre. Dans l’app, la police de l’album est par défaut Source Sans 3, et celle que l’album porte est incorporée dans chaque PDF exporté.",
     links: [
       { label: "Code source", href: config.repo },
       { label: "Signaler un problème", href: `${config.repo}/issues/new/choose` },

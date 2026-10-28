@@ -1,53 +1,80 @@
-/* Colophon, site. The design borrows the app's own palette and its one hard
-   rule: square corners, like a trimmed page. Nothing here is rounded, nothing
-   floats on a soft shadow, and the only saturated colour is the terracotta the
-   app uses for chapters. Structure is carried by rules and by the grid, which
-   is what a printed page does.
+/* Booklibre, site. « La page calme », the app's own system (DESIGN.md in the
+   app's repository): a white page, warm grey ink, one hairline colour, near-black
+   for the one action, and the platform's own sans. No font is fetched: a page
+   about not phoning home should not open a connection to a font server to render
+   its first paragraph.
 
-   Typography: Charter, which ships with macOS and falls back to Georgia, for
-   everything that speaks; Avenir Next, falling back to the system UI face, for
-   everything that labels. No web font is fetched: a page about not phoning
-   home should not open a connection to a font server to render its first
-   paragraph. */
+   Colour is spent on meaning, never on decoration. The paper of the album stays
+   cream and is the only warm surface; terracotta marks a chapter and the brand,
+   nothing else. Tags speak the app's four kinds: yellow wants a look before
+   printing, green has been checked. Three corners, each with one job: 4px tags,
+   6px controls, 10px panels. One shadow, under the screenshot that sits on the
+   light table. */
 
 :root {
   color-scheme: light;
 
+  --ground: #ffffff;
+  --wash: #f7f7f5;
+  --table: #f1f0ec;
+  --line: #e9e9e7;
+  --ink: #37352f;
+  --ink-strong: #191918;
+  --muted: #6b6a65;
+  --action: #191918;
+  --action-hover: #3b3a36;
+  --action-tint: #efefed;
+  --on-action: #ffffff;
+  --link: #1d63c9;
+
   --paper: #f6f2e9;
-  --paper-sunk: #efe9dc;
-  --ink: #17150f;
-  --body: #2c281f;
-  --muted: #5f5546;
-  /* The app's terracotta, to the hex (styles.css, --accent). It clears 4.5:1
-     on paper (4.89) and on the sunk paper (4.51), so the same ink serves rules,
-     display type and reading-size text alike. */
-  --accent: #b04a1f;
-  --rule: rgba(23, 21, 15, 0.16);
-  --rule-faint: rgba(23, 21, 15, 0.08);
+  --paper-ink: #3a342c;
+  --chap-rule: #b04a1f;
 
-  --font-display: "Charter", "Bitstream Charter", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
-  --font-ui: "Avenir Next", Avenir, "Segoe UI", system-ui, sans-serif;
-  --font-mono: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
+  --tag: #efefed;
+  --tag-ink: #55534e;
+  --qual: #fbf0d4;
+  --qual-ink: #5c4210;
+  --pret: #e3f0e4;
+  --pret-ink: #245133;
 
-  --measure: 34rem;
-  --gutter: clamp(1.25rem, 4vw, 3.5rem);
-  --page: 74rem;
-  --turn: 180ms cubic-bezier(0.2, 0, 0, 1);
+  --sans: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --mono: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
+
+  --r-tag: 4px;
+  --r-ctl: 6px;
+  --r-panel: 10px;
+
+  --page: 72rem;
+  --gutter: clamp(1.25rem, 4vw, 2.5rem);
+  --ease: 160ms cubic-bezier(0.16, 1, 0.3, 1);
+  --sheet: 0 1px 2px rgb(0 0 0 / 0.14), 0 24px 56px -28px rgb(0 0 0 / 0.35);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     color-scheme: dark;
 
-    --paper: #17150f;
-    --paper-sunk: #201d15;
-    --ink: #f4efe4;
-    --body: #ede6d8;
-    --muted: #a2998a;
-    /* The app's dark terracotta: 6.13:1 on this paper. */
-    --accent: #e07a4a;
-    --rule: rgba(237, 230, 216, 0.18);
-    --rule-faint: rgba(237, 230, 216, 0.09);
+    --ground: #191918;
+    --wash: #202020;
+    --table: #141413;
+    --line: #2f2f2d;
+    --ink: #e6e5e1;
+    --ink-strong: #f4f3ef;
+    --muted: #9b9a95;
+    --action: #e6e5e1;
+    --action-hover: #ffffff;
+    --action-tint: #2c2c2a;
+    --on-action: #191918;
+    --link: #5a9ee6;
+
+    --tag: #2c2c2a;
+    --tag-ink: #c9c8c3;
+    --qual: #3a3220;
+    --qual-ink: #f0d48e;
+    --pret: #233427;
+    --pret-ink: #a8d8b2;
+    --sheet: 0 1px 2px rgb(0 0 0 / 0.5), 0 24px 56px -28px rgb(0 0 0 / 0.8);
   }
 }
 
@@ -64,11 +91,11 @@ html {
 
 body {
   margin: 0;
-  background: var(--paper);
-  color: var(--body);
-  font-family: var(--font-display);
+  background: var(--ground);
+  color: var(--ink);
+  font-family: var(--sans);
   font-size: 1.0625rem;
-  line-height: 1.62;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
@@ -76,615 +103,734 @@ body {
 h1,
 h2,
 h3 {
-  font-family: var(--font-display);
-  color: var(--ink);
-  font-weight: 600;
-  line-height: 1.08;
-  letter-spacing: -0.012em;
-  text-wrap: balance;
+  color: var(--ink-strong);
+  font-weight: 700;
   margin: 0;
+  text-wrap: balance;
 }
 
 h1 {
-  font-size: clamp(2.4rem, 6.2vw, 4.4rem);
-  line-height: 1.04;
+  font-size: clamp(2.4rem, 5.4vw, 3.75rem);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
 }
 
 h2 {
-  font-size: clamp(1.7rem, 3.4vw, 2.6rem);
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  max-width: 24ch;
 }
 
 h3 {
-  font-size: 1.18rem;
+  font-size: 1.05rem;
+  font-weight: 600;
   line-height: 1.35;
 }
 
 p {
-  margin: 0 0 1.1em;
-  max-width: var(--measure);
-  hyphens: none;
+  margin: 1rem 0 0;
+  max-width: 38rem;
+  text-wrap: pretty;
 }
 
 a {
   color: inherit;
-  text-decoration-color: var(--accent);
-  text-decoration-thickness: 1px;
-  text-underline-offset: 0.18em;
-  transition: text-decoration-thickness var(--turn);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, currentColor 35%, transparent);
+  text-underline-offset: 3px;
+  transition: text-decoration-color var(--ease), color var(--ease);
 }
 
 a:hover {
-  text-decoration-thickness: 2px;
+  text-decoration-color: currentColor;
 }
 
 a:focus-visible,
-button:focus-visible {
-  outline: 2px solid var(--accent);
+button:focus-visible,
+summary:focus-visible {
+  outline: 2px solid var(--link);
   outline-offset: 3px;
+  border-radius: 2px;
 }
 
 code,
 kbd {
-  font-family: var(--font-mono);
-  font-size: 0.86em;
+  font-family: var(--mono);
+  font-size: 0.9em;
 }
 
-::selection {
-  background: var(--accent);
-  color: var(--paper);
+b,
+strong {
+  font-weight: 600;
+  color: var(--ink-strong);
 }
 
-/* ---- shell ------------------------------------------------------------- */
+.typed {
+  font-variant-numeric: tabular-nums;
+}
 
 .wrap {
   width: 100%;
-  max-width: var(--page);
-  margin-inline: auto;
-  padding-inline: var(--gutter);
+  max-width: calc(var(--page) + 2 * var(--gutter));
+  margin: 0 auto;
+  padding: 0 var(--gutter);
 }
 
 .skip {
   position: absolute;
-  left: -9999px;
+  left: -999px;
 }
 
 .skip:focus {
-  left: var(--gutter);
-  top: 0.6rem;
+  left: 1rem;
+  top: 1rem;
   z-index: 10;
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--action);
+  color: var(--on-action);
   padding: 0.5rem 0.9rem;
+  border-radius: var(--r-ctl);
 }
 
-/* ---- masthead ---------------------------------------------------------- */
+/* ---- the masthead ------------------------------------------------------ */
 
 .masthead {
   display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 1.5rem;
-  padding-block: 1.4rem 1.2rem;
-  border-bottom: 1px solid var(--rule);
+  align-items: center;
+  gap: 1.75rem;
+  height: 4rem;
+  border-bottom: 1px solid var(--line);
 }
 
+/* The mark: two pages and the fold between them, ink and terracotta. The
+   product's own object, not a logo drawing. */
 .mark {
-  font-size: 1.22rem;
-  font-weight: 600;
-  color: var(--ink);
-  letter-spacing: 0.005em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--ink-strong);
   text-decoration: none;
-  /* The square belongs to the word. Squeezed by the nav on a narrow screen it
-     would otherwise drop to a line of its own, which reads as a stray dot. */
-  white-space: nowrap;
-  flex: none;
 }
 
-.mark::after {
+.mark i {
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5px;
+  width: 20px;
+  height: 13px;
+}
+
+.mark i::before,
+.mark i::after {
   content: "";
-  display: inline-block;
-  width: 0.42em;
-  height: 0.42em;
-  margin-left: 0.42em;
-  background: var(--accent);
-  vertical-align: 0.06em;
+  border-radius: 1.5px;
+  background: var(--ink-strong);
+}
+
+.mark i::after {
+  background: var(--chap-rule);
 }
 
 .masthead nav {
   display: flex;
-  flex-wrap: wrap;
-  gap: clamp(0.9rem, 2.2vw, 1.8rem);
-  font-family: var(--font-ui);
-  font-size: 0.845rem;
-  color: var(--muted);
+  gap: 1.4rem;
+  margin-left: auto;
+  font-size: 0.9375rem;
 }
 
 .masthead nav a {
+  color: var(--muted);
   text-decoration: none;
-  border-bottom: 1px solid transparent;
-  padding-bottom: 2px;
-  transition: border-color var(--turn), color var(--turn);
 }
 
 .masthead nav a:hover {
-  color: var(--ink);
-  border-bottom-color: var(--accent);
+  color: var(--ink-strong);
 }
 
-.masthead .lang {
-  color: var(--ink);
-}
-
-/* On a narrow screen the section anchors wrap onto three lines and buy
-   nothing: the page is short and thumbs scroll. The language switch is the
-   one thing that has to stay reachable, so it is the one thing that stays. */
-@media (max-width: 40rem) {
+@media (max-width: 52rem) {
   .masthead nav a:not(.lang) {
     display: none;
   }
 }
 
-/* ---- hero -------------------------------------------------------------- */
+@media (max-width: 30rem) {
+  .masthead .btn-sm {
+    display: none;
+  }
+}
+
+/* ---- buttons ------------------------------------------------------------ */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  height: 2.75rem;
+  padding: 0 1.25rem;
+  border: 1px solid transparent;
+  border-radius: var(--r-ctl);
+  background: var(--action);
+  color: var(--on-action);
+  font: 600 1rem/1 var(--sans);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background var(--ease);
+}
+
+.btn:hover {
+  background: var(--action-hover);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-sm {
+  height: 2.25rem;
+  padding: 0 0.9rem;
+  font-size: 0.875rem;
+}
+
+.btn-lg {
+  height: 3rem;
+  padding: 0 1.4rem;
+}
+
+.btn-second {
+  background: var(--ground);
+  color: var(--ink-strong);
+  border-color: var(--line);
+}
+
+.btn-second:hover {
+  background: var(--wash);
+}
+
+.btn-quiet {
+  color: var(--muted);
+  font-size: 0.9375rem;
+}
+
+.btn-quiet:hover {
+  color: var(--ink-strong);
+}
+
+/* ---- tags and properties ------------------------------------------------ */
+
+.tag {
+  display: inline-block;
+  padding: 0.125rem 0.45rem;
+  border-radius: var(--r-tag);
+  background: var(--tag);
+  color: var(--tag-ink);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  line-height: 1.35;
+  white-space: nowrap;
+}
+
+.tag-qual {
+  background: var(--qual);
+  color: var(--qual-ink);
+}
+
+.tag-pret {
+  background: var(--pret);
+  color: var(--pret-ink);
+}
+
+/* A Notion page's properties: label left in muted ink, value right, one
+   hairline between rows. */
+.props {
+  margin: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--r-panel);
+  padding: 0.25rem 1rem;
+  font-size: 0.9375rem;
+}
+
+.props > div {
+  display: grid;
+  grid-template-columns: 7.5rem 1fr;
+  gap: 0.75rem;
+  align-items: center;
+  min-height: 2.6rem;
+  padding: 0.35rem 0;
+}
+
+.props > div + div {
+  border-top: 1px solid var(--line);
+}
+
+.props dt {
+  color: var(--muted);
+}
+
+.props dd {
+  margin: 0;
+  color: var(--ink-strong);
+}
+
+/* The section label: a grey tag, never a spaced-out uppercase line. */
+.kicker {
+  display: inline-block;
+  margin: 0 0 0.9rem;
+  padding: 0.125rem 0.45rem;
+  border-radius: var(--r-tag);
+  background: var(--tag);
+  color: var(--tag-ink);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+/* ---- the hero ----------------------------------------------------------- */
 
 .hero {
-  position: relative;
-  padding-block: clamp(3.5rem, 9vw, 7rem) clamp(3rem, 7vw, 5.5rem);
-}
-
-/* The signature detail, and the only decoration on the page: printer's crop
-   marks at the corners of the first screen. It is what the product is about. */
-.hero::before,
-.hero::after {
-  content: "";
-  position: absolute;
-  width: 26px;
-  height: 26px;
-  border-color: var(--accent);
-  border-style: solid;
-  opacity: 0.75;
-}
-
-.hero::before {
-  top: clamp(1.4rem, 4vw, 2.6rem);
-  left: 0;
-  border-width: 1px 0 0 1px;
-}
-
-.hero::after {
-  bottom: clamp(1.4rem, 4vw, 2.6rem);
-  right: 0;
-  border-width: 0 1px 1px 0;
-}
-
-.hero h1 {
-  max-width: 18ch;
-}
-
-.hero h1 em {
-  font-style: normal;
-  color: var(--accent);
+  padding: clamp(3rem, 8vw, 5.5rem) 0 2.5rem;
 }
 
 .hero .lede {
-  margin-top: 1.6rem;
-  font-size: clamp(1.08rem, 1.6vw, 1.28rem);
-  color: var(--body);
-  max-width: 40rem;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  max-width: 36rem;
+  margin-top: 1.4rem;
+}
+
+.hero-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 2.5rem;
+  align-items: end;
+}
+
+@media (min-width: 60rem) {
+  .hero-split {
+    grid-template-columns: minmax(0, 1fr) 20.5rem;
+    gap: 4rem;
+  }
+}
+
+.hero-split h1 {
+  max-width: 15ch;
+}
+
+/* The second sentence answers the first in muted ink: hierarchy by colour,
+   not by an italic serif on one word. */
+.hero h1 em {
+  font-style: normal;
+  color: var(--muted);
 }
 
 .actions {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 1.6rem;
-  margin-top: 2.2rem;
+  gap: 0.75rem 1.4rem;
+  margin-top: 2rem;
 }
 
-.btn {
-  display: inline-block;
-  padding: 0.82rem 1.5rem;
-  background: var(--ink);
-  color: var(--paper);
-  font-family: var(--font-ui);
-  font-size: 0.94rem;
-  font-weight: 500;
-  text-decoration: none;
-  transition: transform var(--turn), background-color var(--turn);
-}
+/* ---- screenshots on the light table ------------------------------------- */
 
-.btn:hover {
-  transform: translateY(-2px);
-  background: var(--accent);
-}
-
-.btn-quiet {
-  font-family: var(--font-ui);
-  font-size: 0.94rem;
-  color: var(--muted);
-  text-decoration-color: var(--rule);
-}
-
-.btn-quiet:hover {
-  color: var(--ink);
-  text-decoration-color: var(--accent);
-}
-
-.hero .note {
-  margin-top: 1.4rem;
-  font-family: var(--font-ui);
-  font-size: 0.83rem;
-  color: var(--muted);
-}
-
-/* ---- section frame ----------------------------------------------------- */
-
-section {
-  padding-block: clamp(3.2rem, 7vw, 5.6rem);
-  border-top: 1px solid var(--rule-faint);
-}
-
-/* Small text sets in a narrower column than body copy: at 13 px, 34 rem would
-   run past 80 characters a line, which is where the eye starts losing the
-   return sweep. */
-.caption,
-.note {
-  max-width: 30rem;
-}
-
-.kicker {
-  display: flex;
-  align-items: center;
-  gap: 0.7rem;
-  max-width: none;
-  margin: 0 0 1.4rem;
-  font-family: var(--font-ui);
-  font-size: 0.8rem;
-  font-weight: 500;
-  color: var(--accent);
-}
-
-.kicker::before {
-  content: "";
-  width: 1.6rem;
-  height: 1px;
-  background: var(--accent);
-}
-
-/* Two columns that do not split the difference: the text side is wide, the
-   side note is narrow and sits low. Asymmetry on purpose. */
-.split {
-  display: grid;
-  gap: clamp(1.6rem, 4vw, 3.4rem);
-  align-items: start;
-}
-
-@media (min-width: 62rem) {
-  .split {
-    grid-template-columns: minmax(0, 7fr) minmax(0, 4fr);
-  }
-
-  .split > aside {
-    padding-top: 3.6rem;
-  }
-
-  .split.flip > aside {
-    order: -1;
-    padding-top: 0;
-  }
-}
-
-aside {
-  font-family: var(--font-ui);
-  font-size: 0.92rem;
-  line-height: 1.6;
-  color: var(--muted);
-  border-top: 1px solid var(--rule);
-  padding-top: 1rem;
-}
-
-aside p {
-  max-width: 30rem;
-}
-
-/* ---- screenshots ------------------------------------------------------- */
-
-/* The app's window as it is, white table and all: no frame drawn around it,
-   the screenshot keeps its own rounded corners. */
 .shot {
-  margin: clamp(2rem, 5vw, 3.2rem) 0 0;
+  margin: 2.5rem 0 0;
+}
+
+.shot-hero {
+  margin-top: 0.5rem;
+}
+
+.shot .table {
+  background: var(--table);
+  border-radius: 12px;
+  padding: clamp(1rem, 4vw, 3rem) clamp(1rem, 4vw, 3rem) 0;
+  overflow: hidden;
 }
 
 .shot img {
   display: block;
   width: 100%;
   height: auto;
-  border: 1px solid var(--rule-faint);
-  border-radius: 10px;
+  border-radius: 10px 10px 0 0;
+  box-shadow: var(--sheet);
 }
 
-/* ---- the run ----------------------------------------------------------- */
-
-.run-line {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: clamp(1rem, 3vw, 2.6rem);
-  margin-bottom: 1.6rem;
-}
-
-.figure-n {
-  display: block;
-  font-size: clamp(3rem, 8vw, 5.6rem);
-  line-height: 0.9;
-  color: var(--ink);
-  font-weight: 600;
-  letter-spacing: -0.03em;
-  font-variant-numeric: lining-nums tabular-nums;
-}
-
-.figure-n.to {
-  color: var(--accent);
-}
-
-.figure-l {
-  display: block;
-  margin-top: 0.5rem;
-  font-family: var(--font-ui);
-  font-size: 0.84rem;
+.shot figcaption,
+.caption {
+  margin-top: 0.75rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
   color: var(--muted);
-  max-width: 12rem;
 }
 
-.arrow {
-  color: var(--muted);
-  font-size: 1.6rem;
-  line-height: 1;
+/* ---- sections ------------------------------------------------------------ */
+
+section {
+  padding: clamp(4rem, 9vw, 6.5rem) 0 0;
 }
 
-.run-tail {
-  font-size: 1.15rem;
-  max-width: 40rem;
+.split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 2.5rem;
 }
 
-.run-tail b {
-  font-weight: 600;
-  color: var(--ink);
+@media (min-width: 60rem) {
+  .split {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+    gap: 4.5rem;
+    align-items: start;
+  }
+}
+
+/* ---- the run ------------------------------------------------------------- */
+
+.run {
+  font-size: clamp(1.35rem, 2.4vw, 1.6rem);
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  color: var(--ink-strong);
+  max-width: 26ch;
+  margin-top: 0;
+}
+
+.run b {
+  font-weight: 700;
 }
 
 .pipeline {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem 1rem;
-  margin: 2rem 0 0;
-  padding: 0.9rem 0 0;
-  border-top: 1px solid var(--rule);
+  gap: 0.4rem;
+  margin: 1.75rem 0 0;
+  padding: 0;
   list-style: none;
-  font-family: var(--font-mono);
-  font-size: 0.82rem;
+  font-size: 0.875rem;
+}
+
+.pipeline li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
   color: var(--muted);
 }
 
 .pipeline li + li::before {
-  content: "→ ";
-  color: var(--accent);
-}
-
-.caption {
-  margin-top: 0.9rem;
-  font-family: var(--font-ui);
-  font-size: 0.82rem;
-  color: var(--muted);
-}
-
-/* ---- the never list ---------------------------------------------------- */
-
-.nevers {
-  margin: 1.8rem 0 1.6rem;
-  padding: 0;
-  list-style: none;
-  max-width: 44rem;
-  counter-reset: none;
-}
-
-.nevers li {
-  padding: 0.85rem 0 0.85rem 1.9rem;
-  border-top: 1px solid var(--rule-faint);
-  position: relative;
-}
-
-.nevers li:last-child {
-  border-bottom: 1px solid var(--rule-faint);
-}
-
-/* A cross, not a checkmark: this is a list of refusals. */
-.nevers li::before {
   content: "";
-  position: absolute;
-  left: 0;
-  top: 1.42em;
-  width: 0.72rem;
+  width: 0.9rem;
   height: 1px;
-  background: var(--accent);
+  background: var(--line);
+  margin-right: 0.1rem;
 }
 
-/* ---- the spread diagram ------------------------------------------------ */
+/* ---- the spread diagram --------------------------------------------------- */
 
 .diagram {
   margin: 0;
-  width: 100%;
+  background: var(--table);
+  border-radius: var(--r-panel);
+  padding: 1.5rem 1.25rem 1rem;
 }
 
 .diagram svg {
   display: block;
   width: 100%;
   height: auto;
+  overflow: visible;
 }
 
 .d-bleed {
-  fill: var(--paper-sunk);
+  fill: none;
+  stroke: var(--muted);
+  stroke-width: 0.5;
+  stroke-dasharray: 2 2;
 }
 
 .d-page {
-  fill: none;
-  stroke: var(--rule);
+  fill: var(--paper);
+  stroke: rgb(0 0 0 / 0.08);
   stroke-width: 1;
 }
 
 .d-cell {
-  fill: var(--rule-faint);
-  stroke: var(--rule);
-  stroke-width: 1;
+  fill: #cfc6b6;
 }
 
 .d-cut {
-  stroke: var(--accent);
-  stroke-width: 1;
+  stroke: var(--ink-strong);
+  stroke-width: 0.6;
 }
 
 .d-fold {
-  stroke: var(--rule);
-  stroke-width: 1;
-  stroke-dasharray: 3 4;
+  stroke: rgb(58 52 44 / 0.35);
+  stroke-width: 0.6;
+  stroke-dasharray: 3 2;
 }
 
 .d-label {
-  font-family: var(--font-ui);
-  font-size: 9px;
   fill: var(--muted);
+  font-family: var(--sans);
+  font-size: 7.5px;
 }
 
-/* ---- printing ---------------------------------------------------------- */
+/* ---- the discard table, a Notion database ------------------------------- */
+
+.db {
+  border-top: 1px solid var(--line);
+  font-size: 0.9375rem;
+  align-self: center;
+}
+
+.db-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 1rem;
+  align-items: center;
+  min-height: 3.25rem;
+  padding: 0.5rem 0.25rem;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink-strong);
+}
+
+.db-head {
+  min-height: 2.25rem;
+  font-size: 0.8125rem;
+  color: var(--muted);
+}
+
+.thumbs {
+  display: flex;
+  gap: 3px;
+  justify-content: flex-end;
+}
+
+.thumbs img {
+  width: 48px;
+  height: 36px;
+  object-fit: cover;
+  border-radius: 3px;
+}
+
+/* ---- the promise ---------------------------------------------------------- */
+
+.nevers {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0 0;
+  max-width: 38rem;
+}
+
+.nevers li {
+  display: grid;
+  grid-template-columns: 1.4rem 1fr;
+  gap: 0.6rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.nevers svg {
+  width: 1.1rem;
+  height: 1.1rem;
+  margin-top: 0.25rem;
+  fill: none;
+  stroke: var(--muted);
+  stroke-width: 1.8;
+}
+
+.callout {
+  background: var(--wash);
+  border-radius: var(--r-panel);
+  padding: 1.5rem 1.6rem;
+  align-self: end;
+}
+
+.callout p {
+  margin: 0;
+  font-size: 1.0625rem;
+}
+
+/* ---- printing --------------------------------------------------------------- */
 
 .term {
-  margin: 1.6rem 0 0;
+  margin: 1.75rem 0 0;
   padding: 0.85rem 1rem;
-  background: var(--paper-sunk);
-  border-left: 2px solid var(--accent);
-  font-family: var(--font-mono);
-  font-size: 0.82rem;
-  color: var(--body);
+  background: var(--wash);
+  border-radius: var(--r-ctl);
   overflow-x: auto;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--ink-strong);
 }
 
-/* ---- download ---------------------------------------------------------- */
+#print aside .caption {
+  margin-top: 1.25rem;
+  max-width: none;
+}
 
-.steps {
-  margin: 1.8rem 0 0;
-  padding: 0;
+/* ---- privacy ------------------------------------------------------------------ */
+
+.quiet-block {
+  background: var(--wash);
+  border-radius: var(--r-panel);
+  padding: clamp(1.5rem, 4vw, 2.75rem);
+}
+
+.quiet-block .kicker {
+  background: var(--ground);
+}
+
+.cols {
+  display: grid;
+  gap: 0 2.5rem;
+}
+
+@media (min-width: 52rem) {
+  .cols {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.cols p {
+  font-size: 0.975rem;
+}
+
+/* ---- questions, as toggles ----------------------------------------------------- */
+
+.toggles {
+  margin-top: 1.75rem;
+  max-width: 46rem;
+  border-top: 1px solid var(--line);
+}
+
+details {
+  border-bottom: 1px solid var(--line);
+}
+
+summary {
   list-style: none;
-  max-width: 44rem;
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: 1.4rem 1fr;
+  gap: 0.4rem;
+  padding: 0.85rem 0;
+  font-weight: 600;
+  color: var(--ink-strong);
 }
 
-.steps li {
-  padding-block: 1.1rem;
-  border-top: 1px solid var(--rule-faint);
+summary::-webkit-details-marker {
+  display: none;
 }
 
-.steps .term {
-  margin-top: 0;
+summary::before {
+  content: "";
+  width: 0;
+  height: 0;
+  margin: 0.5rem 0 0 0.3rem;
+  border-left: 6px solid var(--muted);
+  border-top: 4.5px solid transparent;
+  border-bottom: 4.5px solid transparent;
+  transition: transform var(--ease);
 }
 
-.steps .note {
-  margin: 0.7rem 0 0;
-  font-family: var(--font-ui);
-  font-size: 0.86rem;
-  color: var(--muted);
+details[open] summary::before {
+  transform: rotate(90deg);
+}
+
+details p {
+  margin: 0 0 1rem 1.8rem;
+}
+
+/* ---- get it --------------------------------------------------------------------- */
+
+.get {
+  margin-top: clamp(4rem, 9vw, 6.5rem);
+  padding: 3.5rem 0;
+  background: var(--wash);
+  border-top: 1px solid var(--line);
+}
+
+.get-in {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 2rem;
+  align-items: center;
+}
+
+@media (min-width: 52rem) {
+  .get-in {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 4rem;
+  }
 }
 
 .platforms {
   display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-top: 1.8rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
 }
 
-/* ---- faq --------------------------------------------------------------- */
-
-.faq-list {
-  margin-top: 2rem;
-  border-top: 1px solid var(--rule-faint);
+.steps {
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
 }
 
-.faq-list > div {
-  display: grid;
-  gap: 0.4rem 3rem;
-  padding-block: 1.5rem;
-  border-bottom: 1px solid var(--rule-faint);
+.steps li + li {
+  margin-top: 1rem;
 }
 
-@media (min-width: 52rem) {
-  .faq-list > div {
-    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-    align-items: start;
-  }
-}
-
-.faq-list h3 {
-  color: var(--ink);
-}
-
-.faq-list p {
-  margin: 0;
-  color: var(--body);
-  max-width: 42rem;
-}
-
-/* ---- colophon ---------------------------------------------------------- */
+/* ---- the foot -------------------------------------------------------------------- */
 
 .foot {
-  padding-block: clamp(3rem, 6vw, 4.5rem);
-  border-top: 1px solid var(--rule);
-  font-family: var(--font-ui);
-  font-size: 0.88rem;
+  padding: 2rem 0 2.5rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.875rem;
   color: var(--muted);
 }
 
-.foot h2 {
-  font-size: 1.1rem;
-  font-family: var(--font-display);
-  margin-bottom: 0.8rem;
-}
-
-.foot p {
-  max-width: 31rem;
+.foot-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 2rem;
 }
 
 .foot-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.4rem;
-  margin: 1.4rem 0 1.8rem;
+  gap: 0.4rem 1.25rem;
+  margin: 0;
   padding: 0;
   list-style: none;
 }
 
 .foot-links a {
-  color: var(--ink);
-  text-decoration: none;
-  border-bottom: 1px solid var(--accent);
-  padding-bottom: 2px;
+  color: var(--muted);
 }
 
-.legal {
-  font-size: 0.82rem;
-  border-top: 1px solid var(--rule-faint);
-  padding-top: 1.2rem;
-  margin: 0;
+.foot-links a:hover {
+  color: var(--ink-strong);
 }
 
-/* ---- motion ------------------------------------------------------------ */
+.foot p {
+  max-width: 46rem;
+  margin-top: 0.75rem;
+}
 
-/* One rise, once, on transform and opacity only. No parallax, no scroll
-   hijack, no staggered fade on every block. */
+/* One rise, once, on transform and opacity only. */
 @media (prefers-reduced-motion: no-preference) {
   .rise {
-    animation: rise 520ms cubic-bezier(0.2, 0, 0, 1) both;
+    animation: rise 480ms cubic-bezier(0.16, 1, 0.3, 1) both;
   }
 
   @keyframes rise {
     from {
       opacity: 0;
-      transform: translateY(12px);
+      transform: translateY(10px);
     }
     to {
       opacity: 1;
@@ -698,8 +844,10 @@ aside p {
     scroll-behavior: auto;
   }
 
-  * {
-    animation-duration: 0.01ms !important;
-    transition-duration: 0.01ms !important;
+  *,
+  *::before,
+  *::after {
+    transition-duration: 1ms !important;
+    animation-duration: 1ms !important;
   }
 }
