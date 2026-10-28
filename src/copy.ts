@@ -230,7 +230,7 @@ export const en: Copy = {
       },
       {
         q: "How do you make money?",
-        a: "Not from this. The software is free and stays free, and so does the full-resolution PDF export, offline and without an account.",
+        a: "The software is free and stays free, and so does the full-resolution PDF export, offline and without an account. If you order the printed album from inside the app (France only for now), a small margin goes to the project. Nothing makes you: the PDF goes to whichever print shop you like.",
       },
       {
         q: "Windows? Linux?",
@@ -404,7 +404,7 @@ export const fr: Copy = {
       },
       {
         q: "Vous gagnez de l’argent comment ?",
-        a: "Pas avec ça. Le logiciel est gratuit et le restera, l’export PDF pleine résolution aussi, hors ligne et sans compte.",
+        a: "Le logiciel est gratuit et le restera, l’export PDF pleine résolution aussi, hors ligne et sans compte. Si vous commandez l’album imprimé depuis l’app (en France pour l’instant), une petite marge revient au projet. Rien ne vous y oblige : le PDF part chez l’imprimeur de votre choix.",
       },
       {
         q: "Windows ? Linux ?",
