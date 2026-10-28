@@ -16,10 +16,13 @@ import Retour from "../../layouts/Retour.astro";
       "Vos photos et vos albums restent sur votre ordinateur. La composition et l’export PDF se font hors ligne.",
       "Depuis la photothèque, Booklibre copie les photos de l’album que vous choisissez dans un dossier de vos Images. Il n’y modifie ni n’y supprime jamais rien.",
       "La version du Mac App Store n’appelle aucun serveur.",
+      "Les prix. Si vous répondez « Par Booklibre » à « Comment l’imprimer ? », la version téléchargée lit une fois par ouverture la table des prix sur prices.booklibre.app. La requête ne porte ni identifiant ni rien de votre album, pas même le pays choisi. « Moi-même » la coupe.",
+      "La commande. Si vous commandez un album imprimé (France seulement), Booklibre envoie au relais api.booklibre.app le pays de livraison, le format, le nombre de pages, puis les deux PDF de l’album, donc chacune de ses photos. Les fichiers sont effacés au plus tard 30 jours après la commande. Si vous avez accepté d’imprimer des pages sous 250 ppi, la liste de ces pages (numéros et résolutions, aucun nom de photo) est gardée 180 jours. Pour limiter les abus, le relais compte les demandes par adresse IP hachée, et efface ce compte au bout de deux jours.",
+      "Le paiement se fait sur la page de Stripe, dans votre navigateur. Votre carte, votre nom, votre adresse, votre e-mail et votre téléphone sont saisis là, jamais dans l’app, et le relais ne les garde pas. Stripe les traite pour le paiement et la facture, Cloudprinter pour la fabrication et la livraison, chacun selon sa propre politique.",
       "La version téléchargée demande au lancement s’il existe une version plus récente : d’abord à booklibre.app, puis à GitHub si le site ne répond pas. La requête ne porte rien d’autre que cette question. La vérification se coupe dans les Préférences.",
       "booklibre.app est servi par Cloudflare, GitHub par GitHub. Chacun voit l’adresse IP et le logiciel des requêtes qui lui arrivent, et peut les garder dans ses journaux d’accès, selon sa propre politique.",
       "« Signaler un problème » ouvre une page de GitHub dans votre navigateur, avec le rapport que vous lisez avant de l’envoyer. Rien ne part sans votre clic, et ce que vous publiez là relève des conditions de GitHub.",
-      "Questions : hello@booklibre.app. Mis à jour le 22 octobre 2026.",
+      "Questions : hello@booklibre.app. Mis à jour le 28 octobre 2026.",
     ],
   }}
   en={{
@@ -29,10 +32,13 @@ import Retour from "../../layouts/Retour.astro";
       "Your photos and albums stay on your computer. Composing and exporting the PDF happen offline.",
       "From the photo library, Booklibre copies the photos of the album you pick into a folder in your Pictures. It never changes or deletes anything there.",
       "The Mac App Store version calls no server.",
+      "Prices. If you answer “Through Booklibre” to “How will you print it?”, the downloaded version reads the price table from prices.booklibre.app once each time it opens. The request carries no identifier and nothing of your album, not even the country you picked. “Myself” turns it off.",
+      "Ordering. If you order a printed album (France only), Booklibre sends the relay api.booklibre.app the delivery country, the format, the page count, then the album’s two PDFs, so every photograph in it. The files are deleted at the latest 30 days after the order. If you agreed to print pages under 250 ppi, the list of those pages (numbers and resolutions, no photo name) is kept 180 days. To limit abuse, the relay counts requests per hashed IP address, and deletes that count after two days.",
+      "Payment happens on Stripe’s page, in your browser. Your card, name, address, e-mail and phone are typed there, never in the app, and the relay does not keep them. Stripe processes them for the payment and the invoice, Cloudprinter for printing and delivery, each under its own policy.",
       "The downloaded version asks at launch whether a newer version exists: first booklibre.app, then GitHub if the site does not answer. The request carries nothing but that question. Preferences turns the check off.",
       "booklibre.app is served by Cloudflare, GitHub by GitHub. Each sees the IP address and software of the requests it receives, and may keep them in its access logs, under its own policy.",
       "“Report a problem” opens a GitHub page in your browser, with the report you read before sending it. Nothing leaves without your click, and what you post there falls under GitHub’s terms.",
-      "Questions: hello@booklibre.app. Last updated 22 October 2026.",
+      "Questions: hello@booklibre.app. Last updated 28 October 2026.",
     ],
   }}
 />
