@@ -15,7 +15,7 @@ export const config = {
   /** Flip to true the day the first release carries binaries. It swaps the
    *  download block from "build it yourself" to real platform buttons. */
   released: true,
-  version: "1.1.0",
+  version: "1.2.0",
 };
 
 export interface Copy {
