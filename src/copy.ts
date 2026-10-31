@@ -179,7 +179,8 @@ export const en: Copy = {
     kicker: "What it does not do",
     title: "No account, no cloud, no telemetry, ever.",
     body: [
-      "There is no server to send your photographs to. Pull the network cable and everything still works, the export included. The one call Booklibre makes is a question at launch, to booklibre.app then GitHub, about whether a newer version exists; it carries nothing of your photographs and nothing of your album, and Preferences turns it off.",
+      "Your photographs stay on your machine. Pull the network cable and everything still works, the export included. At launch, Booklibre asks booklibre.app, then GitHub, whether a newer version exists; the question carries nothing of your photographs or your album, and Preferences turns it off.",
+      "Anything else happens only when you ask for it. If you choose to print through Booklibre, the app reads the price table. If you order the book, it sends the album’s two PDFs to our relay, which passes them to the printer and deletes them within 30 days. The privacy page lists every request.",
       "The album is a folder on your disk with a readable JSON file in it, which you can repair in a text editor. Your original photographs are read and never modified.",
       "Nothing here expires, reports on you, or holds a project hostage behind a login. The absence is the product.",
     ],
@@ -214,7 +215,7 @@ export const en: Copy = {
       },
       {
         q: "Do my photographs go into a cloud?",
-        a: "No. There is no server. Booklibre works with the network switched off, and it will keep working the day this project stops being maintained.",
+        a: "Only if you order the printed book from the app: its two PDFs then go to our relay and on to the printer, and are deleted within 30 days. Otherwise nothing leaves your machine. Booklibre works with the network switched off, and it will keep working the day this project stops being maintained.",
       },
       {
         q: "Is this AI?",
@@ -353,7 +354,8 @@ export const fr: Copy = {
     kicker: "Ce qu’il ne fait pas",
     title: "Aucun compte, aucun cloud, aucune télémétrie, jamais.",
     body: [
-      "Il n’y a pas de serveur où envoyer vos photos. Débranchez le réseau, tout continue de fonctionner, export compris. Le seul appel que Booklibre passe est une question au lancement, à booklibre.app puis à GitHub, pour savoir s’il existe une version plus récente ; elle n’emporte rien de vos photos et rien de votre album, et les Préférences la coupent.",
+      "Vos photos restent sur votre machine. Débranchez le réseau, tout continue de fonctionner, export compris. Au lancement, Booklibre demande à booklibre.app, puis à GitHub, s’il existe une version plus récente ; la question n’emporte rien de vos photos ni de votre album, et les Préférences la coupent.",
+      "Le reste n’arrive que si vous le demandez. Si vous choisissez d’imprimer par Booklibre, l’app lit la table des prix. Si vous commandez le livre, elle envoie les deux PDF de l’album à notre relais, qui les passe à l’imprimeur et les efface sous 30 jours. La page de confidentialité liste chaque requête.",
       "L’album est un dossier sur votre disque avec un JSON lisible dedans, réparable dans un éditeur de texte. Vos photos d’origine sont lues et jamais modifiées.",
       "Rien ici n’expire, ne vous surveille, ni ne retient un projet derrière un identifiant. L’absence est le produit.",
     ],
@@ -388,7 +390,7 @@ export const fr: Copy = {
       },
       {
         q: "Mes photos partent dans un cloud ?",
-        a: "Non, il n’y a pas de serveur. Booklibre fonctionne réseau coupé, et continuera de fonctionner le jour où ce projet cessera d’être maintenu.",
+        a: "Seulement si vous commandez le livre imprimé depuis l’app : ses deux PDF partent alors à notre relais puis à l’imprimeur, et sont effacés sous 30 jours. Sinon, rien ne quitte votre machine. Booklibre fonctionne réseau coupé, et continuera de fonctionner le jour où ce projet cessera d’être maintenu.",
       },
       {
         q: "C’est de l’IA ?",
